@@ -7,6 +7,7 @@ public class CameraControl : MonoBehaviour
     public GameObject mainCamera;
     public GameObject card;
     bool hitting;
+    bool viewingCards;
     void Start()
     {
         
@@ -15,20 +16,25 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (mainCamera.transform.rotation.x == 0)
+        if (!viewingCards)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                mainCamera.transform.Rotate(60, 0, 0);
+                mainCamera.transform.SetLocalPositionAndRotation(new Vector3(-16.6f, 7.4f, -9.6f), Quaternion.Euler(22.9899979f, 26.4519958f, 338.822021f));
+                mainCamera.GetComponent<Camera>().orthographicSize = 2.52f;
+                viewingCards = true;
             }
         }
         else
         {
             if (Input.GetKeyDown(KeyCode.S))
             {
-                mainCamera.transform.Rotate(-60, 0, 0);
+                mainCamera.transform.SetLocalPositionAndRotation(new Vector3(-4.6f, 7.6f, -12.2f), new Quaternion(0,0,0,0));
+                mainCamera.GetComponent<Camera>().orthographicSize = 5.96f;
+                viewingCards = false;
+
             }
-        }*/
+        }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if(Physics.Raycast (ray, out hit, 1000))
