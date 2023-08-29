@@ -41,7 +41,7 @@ public class CameraControl : MonoBehaviour
         {
             if(hit.collider.gameObject.tag == "Card")
             {
-                Debug.Log("Colisão");
+                Debug.Log(hit.collider.name);
                 hitting = true;
                 card = hit.collider.gameObject;
             }
