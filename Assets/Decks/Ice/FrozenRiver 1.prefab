@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2784774791236428992}
   - component: {fileID: 1095872874486425534}
   m_Layer: 0
-  m_Name: FrozenRiver
+  m_Name: FrozenRiver 1
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
