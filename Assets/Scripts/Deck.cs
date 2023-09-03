@@ -16,10 +16,12 @@ public class Deck : MonoBehaviour
     public bool decided;
     private int count;
     public bool deckFull;
+    public int usedCard;
+    public CameraControl cc;
     void Start()
     {
-        
 
+        cc = FindObjectOfType<CameraControl>();
         
     }
 
@@ -41,6 +43,16 @@ public class Deck : MonoBehaviour
                 StartCoroutine(deckDefine(deckDark));
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            cc.Click();
+        }
+
+        if(Input.GetKeyDown(KeyCode.R) && drawed.Count < 5)
+        {
+            DrawCard();
+        }
     }
 
     
@@ -51,19 +63,16 @@ public class Deck : MonoBehaviour
         {
             while (deck.Count != deckBase.Count)
             {
-                foreach (GameObject i in deckBase)
-                {
                     print("ou");
-                    int r = Random.Range(0, 20);
+                    int r = Random.Range(0, 30);
                     if (!get.Contains(r))
                     {
+                        
+                     
                         deck.Add(deckBase[r]);
                         get.Add(r);
 
                     }
-
-                }
-
             }
             deckFull = true;
         }
@@ -73,15 +82,16 @@ public class Deck : MonoBehaviour
                 {
                     break;
                 }
-                drawed.Add(i);
-                print(drawed.Count);
-                GameObject a = Instantiate(i, cardPlaces[drawed.IndexOf(i)].transform.position, cardPlaces[drawed.IndexOf(i)].transform.rotation);
+               drawed.Add(i);
+               print(drawed.Count);
+                GameObject a = Instantiate(i, cardPlaces[drawed.Count - 1].transform.position, cardPlaces[drawed.Count - 1].transform.rotation);
+                a.name = i.name;
                 a.transform.parent = deckObject.transform;
                 yield return new WaitForSeconds(0.5f);
          }
         
 
-        while (deck.Count > 15)
+        while (deck.Count > 25)
         {
             foreach (GameObject i in drawed)
             {
@@ -104,5 +114,28 @@ public class Deck : MonoBehaviour
        
     }
 
+    public void useCard(GameObject g)
+    {
+        
+        GameObject temp = drawed[drawed.IndexOf(g)];
+        if (temp != null)
+        {
+            usedCard = drawed.IndexOf(temp);
+            Destroy(g);
+            drawed.RemoveAt(usedCard);
+        }
+    }
+
+    public void DrawCard()
+    {
+        int r = Random.Range(0, deck.Count);
+        GameObject g = deck[r];
+        drawed.Add(g);
+        print(drawed.Count);
+        GameObject a = Instantiate(g, cardPlaces[usedCard].transform.position, cardPlaces[usedCard].transform.rotation);
+        a.name = g.name;
+        a.transform.parent = deckObject.transform;
+        deck.Remove(g);
+    }
     
 }

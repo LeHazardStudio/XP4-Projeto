@@ -8,9 +8,10 @@ public class CameraControl : MonoBehaviour
     public GameObject card;
     bool hitting;
     bool viewingCards;
+    Deck d;
     void Start()
     {
-        
+        d = FindObjectOfType<Deck>();
     }
 
     // Update is called once per frame
@@ -62,19 +63,18 @@ public class CameraControl : MonoBehaviour
         {
             card.GetComponent<SpriteRenderer>().color = Color.white;
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0)) 
-        {
-            Click();
-        }
+       
     }
 
-    void Click()
+    public void Click()
     {
         Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit2;
         if(Physics.Raycast (ray2, out hit2, 1000))
         {
             Debug.Log(hit2.collider.gameObject.name);
+            d.useCard(hit2.collider.gameObject);
         }
+
     }
 }
