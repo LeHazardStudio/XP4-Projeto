@@ -10,12 +10,15 @@ public class Deck : MonoBehaviour
     public List<GameObject> deckDark;
     public List<GameObject> deck;
     public List<GameObject> drawed;
+    public List<GameObject> hand;
     public List<int> get;
     public GameObject deckObject;
     public List<GameObject> cardPlaces;
     public bool decided;
     private int count;
     public bool deckFull;
+    public bool draw;
+    public bool use;
     public int usedCard;
     public CameraControl cc;
     void Start()
@@ -53,6 +56,11 @@ public class Deck : MonoBehaviour
         {
             DrawCard();
         }
+        foreach(GameObject a in hand)
+        {
+            a.transform.position = cardPlaces[hand.IndexOf(a)].transform.position;
+        }
+        
     }
 
     
@@ -82,12 +90,14 @@ public class Deck : MonoBehaviour
                 {
                     break;
                 }
-               drawed.Add(i);
-               print(drawed.Count);
-                GameObject a = Instantiate(i, cardPlaces[drawed.Count - 1].transform.position, cardPlaces[drawed.Count - 1].transform.rotation);
-                a.name = i.name;
-                a.transform.parent = deckObject.transform;
-                yield return new WaitForSeconds(0.5f);
+            drawed.Add(i);
+            print(drawed.Count);
+            GameObject a = Instantiate(i, cardPlaces[drawed.Count - 1].transform.position, cardPlaces[drawed.Count - 1].transform.rotation);
+           
+            a.name = i.name;  
+            a.transform.parent = deckObject.transform;
+            hand.Add(a);
+            yield return new WaitForSeconds(0.5f);
          }
         
 
@@ -103,39 +113,45 @@ public class Deck : MonoBehaviour
                 }
             }
             
-        }
-        
-      
-
-
-        
-        
-
-       
+        } 
     }
 
     public void useCard(GameObject g)
     {
-        
-        GameObject temp = drawed[drawed.IndexOf(g)];
-        if (temp != null)
+        if (!use)
         {
-            usedCard = drawed.IndexOf(temp);
-            Destroy(g);
-            drawed.RemoveAt(usedCard);
+            GameObject temp = drawed.Find(obj => obj.name == g.name);
+            if (temp != null)
+            {
+                hand.Remove(g);
+                drawed.Remove(temp);
+                Destroy(g);
+            }
+            draw = false;
+            use = true;
         }
     }
 
     public void DrawCard()
     {
-        int r = Random.Range(0, deck.Count);
-        GameObject g = deck[r];
-        drawed.Add(g);
-        print(drawed.Count);
-        GameObject a = Instantiate(g, cardPlaces[usedCard].transform.position, cardPlaces[usedCard].transform.rotation);
-        a.name = g.name;
-        a.transform.parent = deckObject.transform;
-        deck.Remove(g);
+        if (!draw && deck.Count > 0)
+        {
+            int r = Random.Range(0, deck.Count);
+            GameObject g = deck[r];
+            drawed.Add(g);
+            print(drawed.Count);
+            GameObject a = Instantiate(g, cardPlaces[usedCard].transform.position, cardPlaces[usedCard].transform.rotation);
+            a.name = g.name;
+            a.transform.parent = deckObject.transform;
+            deck.Remove(g);
+            hand.Add(a);
+            use = false;
+            draw = true;
+        }
+        else if (deck.Count <= 0)
+        {
+            use = false;
+        }
     }
     
 }
