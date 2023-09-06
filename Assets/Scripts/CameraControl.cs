@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraControl : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!viewingCards)
+        /*if (!viewingCards)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
@@ -35,7 +36,7 @@ public class CameraControl : MonoBehaviour
                 viewingCards = false;
 
             }
-        }
+        }*/
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if(Physics.Raycast (ray, out hit, 1000))
@@ -57,16 +58,16 @@ public class CameraControl : MonoBehaviour
 
         if (hitting)
         {
-            card.GetComponent<SpriteRenderer>().color = Color.gray;
+            card.GetComponent<Image>().color = Color.gray;
         }
         else if(hitting == false && card != null)
         {
-            card.GetComponent<SpriteRenderer>().color = Color.white;
+            card.GetComponent<Image>().color = Color.white;
         }
        
     }
 
-    public void Click()
+    public void ClickToUse()
     {
         Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit2;
@@ -76,5 +77,16 @@ public class CameraControl : MonoBehaviour
             d.useCard(hit2.collider.gameObject);
         }
 
+    }
+
+    public void ClickToView()
+    {
+        Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit2;
+        if(Physics.Raycast (ray2, out hit2, 1000))
+        {
+            Debug.Log(hit2.collider.gameObject.name);
+            d.ViewCard(hit2.collider.gameObject);
+        }
     }
 }

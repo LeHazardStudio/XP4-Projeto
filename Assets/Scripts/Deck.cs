@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Deck : MonoBehaviour
 {
@@ -19,12 +20,15 @@ public class Deck : MonoBehaviour
     public bool deckFull;
     public bool draw;
     public bool use;
+    public bool viewingCard;
     public int usedCard;
     public CameraControl cc;
+    public Image image;
     void Start()
     {
 
         cc = FindObjectOfType<CameraControl>();
+        image.gameObject.SetActive(false);
         
     }
 
@@ -49,7 +53,11 @@ public class Deck : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            cc.Click();
+            cc.ClickToUse();
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            cc.ClickToView();
         }
 
         if(Input.GetKeyDown(KeyCode.R) && drawed.Count < 5)
@@ -93,7 +101,8 @@ public class Deck : MonoBehaviour
             drawed.Add(i);
             print(drawed.Count);
             GameObject a = Instantiate(i, cardPlaces[drawed.Count - 1].transform.position, cardPlaces[drawed.Count - 1].transform.rotation);
-           
+            a.GetComponent<Image>().sprite = a.GetComponent<SpriteRenderer>().sprite;
+            a.transform.localScale = new Vector3(10.2f, 10.2f, 10.2f);
             a.name = i.name;  
             a.transform.parent = deckObject.transform;
             hand.Add(a);
@@ -153,5 +162,12 @@ public class Deck : MonoBehaviour
             use = false;
         }
     }
+
+    public void ViewCard(GameObject g)
+    {
+        image.sprite = g.GetComponent<SpriteRenderer>().sprite;
+        image.gameObject.SetActive(true);
+    }
+        
     
 }
