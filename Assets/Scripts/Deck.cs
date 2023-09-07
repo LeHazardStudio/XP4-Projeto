@@ -101,8 +101,8 @@ public class Deck : MonoBehaviour
             drawed.Add(i);
             print(drawed.Count);
             GameObject a = Instantiate(i, cardPlaces[drawed.Count - 1].transform.position, cardPlaces[drawed.Count - 1].transform.rotation);
-            a.GetComponent<Image>().sprite = a.GetComponent<SpriteRenderer>().sprite;
-            a.transform.localScale = new Vector3(10.2f, 10.2f, 10.2f);
+            a.GetComponent<SpriteRenderer>().sprite = i.GetComponent<SpriteRenderer>().sprite;
+            a.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
             a.name = i.name;  
             a.transform.parent = deckObject.transform;
             hand.Add(a);
@@ -151,6 +151,7 @@ public class Deck : MonoBehaviour
             print(drawed.Count);
             GameObject a = Instantiate(g, cardPlaces[usedCard].transform.position, cardPlaces[usedCard].transform.rotation);
             a.name = g.name;
+            a.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
             a.transform.parent = deckObject.transform;
             deck.Remove(g);
             hand.Add(a);
@@ -160,6 +161,7 @@ public class Deck : MonoBehaviour
         else if (deck.Count <= 0)
         {
             use = false;
+            draw = true;
         }
     }
 
