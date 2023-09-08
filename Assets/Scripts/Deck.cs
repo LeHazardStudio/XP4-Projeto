@@ -14,6 +14,8 @@ public class Deck : MonoBehaviour
     public List<GameObject> hand;
     public List<int> get;
     public GameObject deckObject;
+    public GameObject deckSelectButton;
+    public GameObject gameHud;
     public List<GameObject> cardPlaces;
     public bool decided;
     private int count;
@@ -23,7 +25,10 @@ public class Deck : MonoBehaviour
     public bool viewingCard;
     public int usedCard;
     public CameraControl cc;
+
     public Image image;
+
+
     void Start()
     {
 
@@ -35,7 +40,7 @@ public class Deck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!decided)
+       /* if (!decided)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
@@ -49,7 +54,7 @@ public class Deck : MonoBehaviour
             {
                 StartCoroutine(deckDefine(deckDark));
             }
-        }
+        }*/
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -75,6 +80,8 @@ public class Deck : MonoBehaviour
     IEnumerator deckDefine(List<GameObject> deckBase)
     {
         decided = true;
+        deckSelectButton.SetActive(false);
+        gameHud.SetActive(true);
         while (!deckFull)
         {
             while (deck.Count != deckBase.Count)
@@ -106,7 +113,7 @@ public class Deck : MonoBehaviour
             a.name = i.name;  
             a.transform.parent = deckObject.transform;
             hand.Add(a);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.25f);
          }
         
 
@@ -136,6 +143,7 @@ public class Deck : MonoBehaviour
                 drawed.Remove(temp);
                 Destroy(g);
             }
+          
             draw = false;
             use = true;
         }
@@ -171,5 +179,27 @@ public class Deck : MonoBehaviour
         image.gameObject.SetActive(true);
     }
         
-    
+    public void fireDeck()
+    {
+        if (!decided)
+        {
+         StartCoroutine(deckDefine(deckFire));
+        }
+    }
+
+    public void iceDeck()
+    {
+        if (!decided)
+        {
+            StartCoroutine(deckDefine(deckIce));
+        }
+    }
+
+    public void darkDeck()
+    {
+        if (!decided)
+        {
+            StartCoroutine(deckDefine(deckDark));
+        }
+    }
 }

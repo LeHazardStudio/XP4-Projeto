@@ -88,5 +88,9 @@ public class CameraControl : MonoBehaviour
             Debug.Log(hit2.collider.gameObject.name);
             d.ViewCard(hit2.collider.gameObject);
         }
+        else
+        {
+            d.image.gameObject.SetActive(false);
+        }
     }
 }

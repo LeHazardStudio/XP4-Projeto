@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6458000516570850338}
   - component: {fileID: 5425872814958749514}
   m_Layer: 0
-  m_Name: v1 fogo especial
+  m_Name: SuperNova
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
