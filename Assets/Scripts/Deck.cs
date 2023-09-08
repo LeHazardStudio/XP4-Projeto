@@ -25,13 +25,13 @@ public class Deck : MonoBehaviour
     public bool viewingCard;
     public int usedCard;
     public CameraControl cc;
-
+    public JogoManagement jm;
     public Image image;
 
 
     void Start()
     {
-
+        jm = FindObjectOfType<JogoManagement>();
         cc = FindObjectOfType<CameraControl>();
         image.gameObject.SetActive(false);
         
@@ -65,10 +65,10 @@ public class Deck : MonoBehaviour
             cc.ClickToView();
         }
 
-        if(Input.GetKeyDown(KeyCode.R) && drawed.Count < 5)
+       /* if(Input.GetKeyDown(KeyCode.R) && drawed.Count < 5)
         {
             DrawCard();
-        }
+        }*/
         foreach(GameObject a in hand)
         {
             a.transform.position = cardPlaces[hand.IndexOf(a)].transform.position;
@@ -132,20 +132,24 @@ public class Deck : MonoBehaviour
         } 
     }
 
-    public void useCard(GameObject g)
+    public IEnumerator useCard(GameObject g)
     {
         if (!use)
         {
             GameObject temp = drawed.Find(obj => obj.name == g.name);
             if (temp != null)
             {
+                jm.damage = temp.GetComponent<Cards>().damage;
+                jm.cust = temp.GetComponent<Cards>().mana;
                 hand.Remove(g);
                 drawed.Remove(temp);
                 Destroy(g);
             }
-          
             draw = false;
             use = true;
+            yield return new WaitForSeconds(1f);
+            jm.TurnFinished = true;
+        
         }
     }
 
