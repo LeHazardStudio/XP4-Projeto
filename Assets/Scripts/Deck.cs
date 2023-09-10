@@ -142,7 +142,7 @@ public class Deck : MonoBehaviour
         {
             
             GameObject temp = drawed.Find(obj => obj.name == g.name);
-            if (temp != null && temp.GetComponent<Cards>().mana < jm.P1_MANA)
+            if (temp != null && temp.GetComponent<Cards>().mana <= jm.P1_MANA)
             {
 
                 GameObject demo = Instantiate(temp, center.transform.position, center.transform.rotation);

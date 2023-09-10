@@ -109,8 +109,16 @@ public class JogoManagement : MonoBehaviour
         {
             P2_MANA = 0;
         }
-        
-        
+        if (P1_MANA > 100)
+        {
+            P1_MANA = 100;
+        }
+        if (P2_MANA > 100)
+        {
+            P2_MANA = 100;
+        }
+
+
     }
 
     
