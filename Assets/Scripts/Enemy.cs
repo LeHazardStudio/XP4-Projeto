@@ -229,25 +229,23 @@ public class Enemy : MonoBehaviour
     public void ChooseCard()
     {
         GameObject choosed = null;
-        while (choosed == null)
-        {
             foreach (GameObject g in drawed)
-            {
-                int r = Random.Range(1, 3);
-                if (r == 1)
+            { 
+                if (g.GetComponent<Cards>().mana < jm.P2_MANA)
                 {
-                    if (g.GetComponent<Cards>().mana < jm.P2_MANA)
-                    {
-                        choosed = g;
-                    }
+                    choosed = g;
                 }
-
-
             }
-        }
         if (choosed != null)
         {
-            StartCoroutine(useCard(hand[drawed.IndexOf(choosed)]));
+          StartCoroutine(useCard(hand[drawed.IndexOf(choosed)]));
+        }
+        else
+        {
+            draw = false;
+            use = true;
+ 
+            jm.TurnFinished = true;
         }
 
 

@@ -30,9 +30,12 @@ public class JogoManagement : MonoBehaviour
     public bool TurnStart;
     public bool TurnFinished;
     public bool bdActivated;
+    public bool canPlay;
 
     public Deck dc;
     public Enemy enm;
+
+    public GameObject skipTurn;
 
 
 
@@ -62,6 +65,22 @@ public class JogoManagement : MonoBehaviour
             {
                 enm.DrawCard();
             }
+            foreach (GameObject g in dc.drawed)
+            {
+                if(g.GetComponent<Cards>().mana < P1_MANA)
+                {
+                    canPlay = true;
+                }
+            }
+            if(canPlay = false)
+            {
+                skipTurn.SetActive(true);
+            }
+            else
+            {
+                skipTurn.SetActive(false); 
+            }
+
             TurnStart = false;
         }
 
@@ -90,6 +109,8 @@ public class JogoManagement : MonoBehaviour
         {
             P2_MANA = 0;
         }
+        
+        
     }
 
     
