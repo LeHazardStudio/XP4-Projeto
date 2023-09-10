@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,8 +13,14 @@ public class JogoManagement : MonoBehaviour
     public int P2_HP = 100;
     public int P2_MANA = 100;
 
-    public int damage;
-    public int cust;
+    public int p1damage;
+    public int p1cust;
+    public int p1bdRounds;
+    public float p1buffDebuff;
+    public int p2damage;
+    public int p2cust;
+    public int p2bdRounds;
+    public float p2buffDebuff;
 
     public TMP_Text P1HPtext;
     public TMP_Text P1MPtext;
@@ -22,14 +29,17 @@ public class JogoManagement : MonoBehaviour
 
     public bool TurnStart;
     public bool TurnFinished;
+    public bool bdActivated;
 
     public Deck dc;
+    public Enemy enm;
 
 
 
     void Start()
     {
         dc = FindObjectOfType<Deck>();
+        enm = FindObjectOfType<Enemy>();
     }
 
     
@@ -39,17 +49,31 @@ public class JogoManagement : MonoBehaviour
         P1MPtext.text = P1_MANA + "/100";
         P2HPtext.text = P2_HP + "/100";
         P2MPtext.text = P2_MANA + "/100";
-
-        if (TurnStart && dc.drawed.Count < 5)
+        if (TurnStart)
         {
-            dc.DrawCard();
+            P1_MANA = P1_MANA + 5;
+            P2_MANA = P2_MANA + 5;
+            if (dc.drawed.Count < 5)
+            {
+                dc.DrawCard();
+                TurnStart = false;
+            }
+            if (enm.drawed.Count < 5)
+            {
+                enm.DrawCard();
+            }
             TurnStart = false;
         }
 
         if (TurnFinished)
         {
-            P1_MANA = P1_MANA - cust;
-            P2_HP = P2_HP - damage;
+
+            P1_MANA = P1_MANA - p1cust;
+            P2_MANA = P2_MANA - p2cust;
+         
+            P2_HP = P2_HP - p1damage;
+         
+            P1_HP = P1_HP - p2damage;
             TurnFinished = false;
             TurnStart = true;
         }
