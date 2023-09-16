@@ -235,6 +235,9 @@ public class Deck : MonoBehaviour
     {
         draw = false;
         use = true;
-        jm.TurnFinished = true;
+        jm.p1damage = 0;
+        jm.p1cust = 0;
+        enm.ChooseCard();
+        //jm.TurnFinished = true;
     }
 }

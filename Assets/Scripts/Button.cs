@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Button : MonoBehaviour
 {
-   void Menu()
+   public void Menu()
     {
         SceneManager.LoadScene("SampleScene");
     }

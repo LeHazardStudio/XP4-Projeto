@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.SearchService;
+//using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -61,25 +61,38 @@ public class JogoManagement : MonoBehaviour
                 dc.DrawCard();
                 TurnStart = false;
             }
+
+            else
+            {
+                dc.draw = true;
+                dc.use = false;
+                TurnStart = false;
+            }
+
             if (enm.drawed.Count < 5)
             {
                 enm.DrawCard();
             }
-            foreach (GameObject g in dc.drawed)
+            /*foreach (GameObject g in dc.drawed)
             {
                 if(g.GetComponent<Cards>().mana < P1_MANA)
                 {
                     canPlay = true;
                 }
+
+                else
+                {
+                    canPlay = false;
+                }
             }
-            if(canPlay = false)
+            if(canPlay == false)
             {
                 skipTurn.SetActive(true);
             }
             else
             {
                 skipTurn.SetActive(false); 
-            }
+            }*/
 
             TurnStart = false;
         }
@@ -97,10 +110,21 @@ public class JogoManagement : MonoBehaviour
             TurnStart = true;
         }
 
-        if(P1_HP <= 0 || P2_HP <= 0)
+        /*if(P1_HP <= 0 || P2_HP <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("Menu");
+        }*/
+
+        if (P1_HP <= 0)
+        {
+            SceneManager.LoadScene("Perdeu");
         }
+
+        if (P2_HP <= 0)
+        {
+            SceneManager.LoadScene("Venceu");
+        }
+
         if (P1_MANA <= 0)
         {
             P1_MANA = 0;
