@@ -10,9 +10,11 @@ public class CameraControl : MonoBehaviour
     bool hitting;
     bool viewingCards;
     Deck d;
+    Board b;
     void Start()
     {
         d = FindObjectOfType<Deck>();
+        b = FindObjectOfType<Board>();
     }
 
     // Update is called once per frame
@@ -41,7 +43,7 @@ public class CameraControl : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast (ray, out hit, 1000))
         {
-            if(hit.collider.gameObject.tag == "Card")
+            if(hit.collider.gameObject.tag == "Card" && hit.collider.gameObject != null)
             {
                 Debug.Log(hit.collider.name);
                 hitting = true;
@@ -74,10 +76,19 @@ public class CameraControl : MonoBehaviour
         if(Physics.Raycast (ray2, out hit2, 1000))
         {
             Debug.Log(hit2.collider.gameObject.name);
-            StartCoroutine(d.useCard(hit2.collider.gameObject));
+            if (b.pressed)
+            {
+                b.movePlayer(hit2.collider.gameObject);
+            }
+            if (!d.choosed)
+            {
+                d.SelectCard(hit2.collider.gameObject);
+                b.cardAction(hit2.collider.gameObject, d.selectedCard);
+            }
         }
 
     }
+
 
     public void ClickToView()
     {

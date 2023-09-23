@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329576643164994609}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.2894735, y: 6.9980173, z: 10.635328}
+  m_LocalPosition: {x: -15.879999, y: 27.76, z: -8.419212}
   m_LocalScale: {x: 0.25004962, y: 0.25004962, z: 0.25004962}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -114,3 +114,5 @@ MonoBehaviour:
   mana: 80
   damage: 50
   attackArea: {fileID: 0}
+  buffDebuff: 0
+  bdRounds: 0

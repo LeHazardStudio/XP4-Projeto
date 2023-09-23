@@ -99,12 +99,7 @@ public class Enemy : MonoBehaviour
             }
             drawed.Add(i);
             print(drawed.Count);
-            GameObject a = Instantiate(i, cardPlaces[drawed.Count - 1].transform.position, cardPlaces[drawed.Count - 1].transform.rotation);
-            a.GetComponent<SpriteRenderer>().sprite = backCard;
-            a.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
-            a.name = i.name;
-            a.transform.parent = deckObject.transform;
-            hand.Add(a);
+            hand.Add(i);
             yield return new WaitForSeconds(0.25f);
         }
 
@@ -166,13 +161,8 @@ public class Enemy : MonoBehaviour
             GameObject g = deck[r];
             drawed.Add(g);
             print(drawed.Count);
-            GameObject a = Instantiate(g, cardPlaces[usedCard].transform.position, cardPlaces[usedCard].transform.rotation);
-            a.GetComponent<SpriteRenderer>().sprite = backCard;
-            a.name = g.name;
-            a.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
-            a.transform.parent = deckObject.transform;
             deck.Remove(g);
-            hand.Add(a);
+            hand.Add(g);
             use = false;
             draw = true;
         }

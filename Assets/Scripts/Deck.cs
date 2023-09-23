@@ -17,8 +17,10 @@ public class Deck : MonoBehaviour
     public GameObject deckSelectButton;
     public GameObject gameHud;
     public GameObject center;
+    public GameObject selectedCard;
     public List<GameObject> cardPlaces;
     public bool decided;
+    public bool choosed;
     private int count;
     public bool deckFull;
     public bool draw;
@@ -29,6 +31,7 @@ public class Deck : MonoBehaviour
     public JogoManagement jm;
     public Enemy enm;
     public Image image;
+    public Board b;
 
 
     void Start()
@@ -36,6 +39,7 @@ public class Deck : MonoBehaviour
         jm = FindObjectOfType<JogoManagement>();
         cc = FindObjectOfType<CameraControl>();
         enm = FindObjectOfType<Enemy>();
+        b = FindObjectOfType<Board>();
         image.gameObject.SetActive(false);
         
     }
@@ -138,10 +142,12 @@ public class Deck : MonoBehaviour
 
     public IEnumerator useCard(GameObject g)
     {
+        print("ta funcionando");
         if (!use)
         {
             
             GameObject temp = drawed.Find(obj => obj.name == g.name);
+            print("temp" + temp.name);
             if (temp != null && temp.GetComponent<Cards>().mana <= jm.P1_MANA)
             {
 
@@ -162,6 +168,7 @@ public class Deck : MonoBehaviour
                 drawed.Remove(temp);
                 Destroy(g);
                 draw = false;
+                choosed = false;
                 use = true;
                 yield return new WaitForSeconds(1f);
                 enm.ChooseCard();
@@ -169,6 +176,24 @@ public class Deck : MonoBehaviour
             
        
         
+        }
+    }
+
+    public void SelectCard(GameObject g)
+    {
+        if (!choosed)
+        {
+
+            GameObject temp = drawed.Find(obj => obj.name == g.name);
+            if (temp != null && temp.GetComponent<Cards>().mana <= jm.P1_MANA)
+            {
+                for(int i = 1; i <= 9; i++)
+                {
+                    selectedCard = g;
+                    b.EnemyPositions[i].GetComponent<MeshRenderer>().enabled = true;
+                }
+                
+            }
         }
     }
 
