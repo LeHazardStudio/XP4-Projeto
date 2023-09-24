@@ -133,11 +133,11 @@ public class Enemy : MonoBehaviour
                 Destroy(demo);
                 jm.p2damage = temp.GetComponent<Cards>().damage;
                 jm.p2cust = temp.GetComponent<Cards>().mana;
-                jm.p2buffDebuff = temp.GetComponent<Cards>().buffDebuff;
+                jm.p2attackBuff = temp.GetComponent<Cards>().attackBuff;
                 if (!jm.bdActivated)
                 {
-                    jm.p2buffDebuff = temp.GetComponent<Cards>().buffDebuff;
-                    jm.p2bdRounds = temp.GetComponent<Cards>().bdRounds;
+                    jm.p2attackBuff = temp.GetComponent<Cards>().attackBuff;
+                    jm.p2dbRounds = temp.GetComponent<Cards>().abRounds;
                     jm.bdActivated = true;
                 }
                 hand.Remove(g);

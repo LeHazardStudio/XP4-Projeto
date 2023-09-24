@@ -113,4 +113,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mana: 30
   damage: 20
-  attackArea: {fileID: 0}
+  attackArea:
+  - {fileID: 3341566164772357159, guid: 8bc53feece94f7041aefd60d82cc8034, type: 3}
+  - {fileID: 3196205847637969253, guid: b21958f837667fa4ba9cfe03721b1b3d, type: 3}
+  - {fileID: 4200265149072607775, guid: 31d4a8b6478f329439ecf517d0ede409, type: 3}
+  - {fileID: 7902613910569072854, guid: d49f3afc96b0ac242919bc59de74c7d7, type: 3}
+  - {fileID: 4207662606120391577, guid: 94d86839643c35f48816f901870f3549, type: 3}
+  buffDebuff: 0
+  bdRounds: 0
+  isAttack: 1
+  isBuffDebuff: 0
+  isTeleport: 0
+  isMana: 0

@@ -83,7 +83,8 @@ public class CameraControl : MonoBehaviour
             if (!d.choosed)
             {
                 d.SelectCard(hit2.collider.gameObject);
-                b.cardAction(hit2.collider.gameObject, d.selectedCard);
+                //* b.cardAction(hit2.collider.gameObject, d.selectedCard);
+                StartCoroutine(d.useCard(hit2.collider.gameObject));
             }
         }
 

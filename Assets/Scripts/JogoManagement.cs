@@ -15,12 +15,16 @@ public class JogoManagement : MonoBehaviour
 
     public int p1damage;
     public int p1cust;
-    public int p1bdRounds;
-    public float p1buffDebuff;
+    public int p1abRounds;
+    public int p1dbRounds;
+    public float p1attackBuff;
+    public float p1defenseBuff;
     public int p2damage;
     public int p2cust;
-    public int p2bdRounds;
-    public float p2buffDebuff;
+    public int p2dbRounds;
+    public int p2abRounds;
+    public float p2attackBuff;
+    public float p2defenseBuff;
 
     public TMP_Text P1HPtext;
     public TMP_Text P1MPtext;
@@ -103,9 +107,9 @@ public class JogoManagement : MonoBehaviour
             P1_MANA = P1_MANA - p1cust;
             P2_MANA = P2_MANA - p2cust;
          
-            P2_HP = P2_HP - p1damage;
+            P2_HP = (int) (P2_HP - (p1damage * p1attackBuff) * -p2defenseBuff);
          
-            P1_HP = P1_HP - p2damage;
+            P1_HP = (int)(P1_HP - (p2damage * p2attackBuff) * -p1defenseBuff);
             TurnFinished = false;
             TurnStart = true;
         }
