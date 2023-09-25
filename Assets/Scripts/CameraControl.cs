@@ -86,6 +86,12 @@ public class CameraControl : MonoBehaviour
                 //* b.cardAction(hit2.collider.gameObject, d.selectedCard);
                 StartCoroutine(d.useCard(hit2.collider.gameObject));
             }
+            if (d.teleport)
+            {
+                b.pressed = true;
+                b.movePlayer(hit2.collider.gameObject);
+                d.useCard(d.selectedCard);
+            }
         }
 
     }

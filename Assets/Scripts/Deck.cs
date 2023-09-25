@@ -28,6 +28,7 @@ public class Deck : MonoBehaviour
     public bool draw;
     public bool use;
     public bool viewingCard;
+    public bool teleport;
     public int usedCard;
     public CameraControl cc;
     public JogoManagement jm;
@@ -148,101 +149,129 @@ public class Deck : MonoBehaviour
         if (!use)
         {
             
-            GameObject temp = drawed.Find(obj => obj.name == g.name);
-            print("temp" + temp.name);
-            if (temp != null && temp.GetComponent<Cards>().mana <= jm.P1_MANA)
-            {
+                GameObject temp = drawed.Find(obj => obj.name == g.name);
+                print("temp" + temp.name);
+               if (temp != null && temp.GetComponent<Cards>().mana <= jm.P1_MANA)
+               {
 
-                GameObject demo = Instantiate(temp, center.transform.position, center.transform.rotation);
-                demo.transform.localScale = new Vector3(1,1,1);
-                yield return new WaitForSeconds(0.5f);
-                if (demo.GetComponent<Cards>().isAttack)
+                    GameObject demo = Instantiate(temp, center.transform.position, center.transform.rotation);
+                    demo.transform.localScale = new Vector3(1, 1, 1);
+                    yield return new WaitForSeconds(0.5f);
+                if (!teleport)
                 {
-                    jm.p1damage = demo.GetComponent<Cards>().damage;
-                    print(demo.GetComponent<Cards>().attackArea.Count + "alo galera de cowboy");
-                    for (int i = 0; i < demo.GetComponent<Cards>().attackArea.Count; i++)
+                    if (demo.GetComponent<Cards>().isAttack)
                     {
-                        print(demo.GetComponent<Cards>().attackArea.Count + "alo galera de cowboy");
-                        GameObject area = b.EnemyPositions.Find(obj => obj.name == demo.GetComponent<Cards>().attackArea[i].name);
-                        if (b.EnemyPositions.Contains(area))
+                        jm.p1damage = demo.GetComponent<Cards>().damage;
+                        print(demo.GetComponent<Cards>().attackArea.Count + "contou");
+                        for (int i = 0; i < demo.GetComponent<Cards>().attackArea.Count; i++)
                         {
-                            print(demo.GetComponent<Cards>().attackArea.Count + "alo galera de peao");
-                            area.GetComponent<MeshRenderer>().enabled = true;
-                            attackAreas.Add(area);
-                            for(int number = 1; number <= 9; number++)
+                            print(demo.GetComponent<Cards>().attackArea.Count + "contou");
+                            GameObject area = b.EnemyPositions.Find(obj => obj.name == demo.GetComponent<Cards>().attackArea[i].name);
+                            if (b.EnemyPositions.Contains(area))
                             {
-                                if (b.EnemyPositions[number] != area)
+                                print(demo.GetComponent<Cards>().attackArea.Count + "contou dnv");
+                                area.GetComponent<MeshRenderer>().enabled = true;
+                                area.GetComponent<BoxCollider>().enabled = true;
+                                attackAreas.Add(area);
+                                for (int number = 1; number <= 9; number++)
                                 {
-                                    if (!attackAreas.Contains(b.EnemyPositions[number]))
+                                    if (b.EnemyPositions[number] != area)
                                     {
-                                        print("terminou");
-                                        b.EnemyPositions[number].GetComponent<MeshRenderer>().enabled = false;
+                                        if (!attackAreas.Contains(b.EnemyPositions[number]))
+                                        {
+                                            print("terminou");
+                                            b.EnemyPositions[number].GetComponent<MeshRenderer>().enabled = false;
+                                            b.EnemyPositions[number].GetComponent<BoxCollider>().enabled = false;
+                                        }
                                     }
                                 }
+
+
+
                             }
-                           
-
+                            else
+                            {
+                                print("error");
+                            }
 
                         }
-                        else
-                        {
-                            print("error");
-                        }
-                        
+                        attackAreas.Clear();
+                        print("attack");
                     }
-                    attackAreas.Clear();
-                    print("attack");
-                }
-                else if (demo.GetComponent<Cards>().isAttackBuff) 
-                {
-                    jm.p1attackBuff = demo.GetComponent<Cards>().attackBuff;
-                    jm.p1abRounds = demo.GetComponent<Cards>().abRounds;
-                    jm.bdActivated = true;
-                    jm.p1damage = 0;
-                    print("buff");
-                }
-                else if (demo.GetComponent<Cards>().isDefenseBuff)
-                {
-                    jm.p1defenseBuff = demo.GetComponent<Cards>().defenseBuff;
-                    jm.p1dbRounds = demo.GetComponent<Cards>().dbRounds;
-                    jm.bdActivated = true;
-                    jm.p1damage = 0;
-                    print("buff");
-                }
-                else if (demo.GetComponent<Cards>().isTeleport)
-                {
-                    for (int number = 1; number <= 9; number++)
+                    else if (demo.GetComponent<Cards>().isAttackBuff)
                     {
-                        if (b.BoardPositions[number] != g)
-                        {
-                            b.BoardPositions[number].GetComponent<MeshRenderer>().enabled = true;
-                        }
+                        jm.p1attackBuff = demo.GetComponent<Cards>().attackBuff + jm.p1attackBuff;
+                        jm.p1abRounds = demo.GetComponent<Cards>().abRounds;
+                        jm.bdActivated = true;
+                        jm.p1damage = 0;
+                        print("buff");
                     }
-                    jm.p1damage = 0;
-                    print("tp");
+                    else if (demo.GetComponent<Cards>().isDefenseBuff)
+                    {
+                        jm.p1defenseBuff = demo.GetComponent<Cards>().defenseBuff + jm.p1defenseBuff;
+                        jm.p1dbRounds = demo.GetComponent<Cards>().dbRounds;
+                        jm.bdActivated = true;
+                        jm.p1damage = 0;
+                        print("buff");
+                    }
+                    else if (demo.GetComponent<Cards>().isTeleport)
+                    {
+                        for (int number = 1; number <= 9; number++)
+                        {
+                            if (b.BoardPositions[number] != g)
+                            {
+                                b.BoardPositions[number].GetComponent<MeshRenderer>().enabled = true;
+                                b.BoardPositions[number].GetComponent<BoxCollider>().enabled = true;
+
+                            }
+
+                        }
+                        Destroy(demo);
+                        jm.p1damage = 0;
+                        print("tp");
+                        teleport = true;
+                        selectedCard = g;
+                        yield break;
+                    }
+                    else
+                    {
+                        jm.p1damage = 0;
+                        print("mp");
+                    }
+                    jm.p1cust = demo.GetComponent<Cards>().mana;
+                    Destroy(demo);
+                    hand.Remove(g);
+                    drawed.Remove(temp);
+                    Destroy(g);
+                    draw = false;
+                    choosed = false;
+                    use = true;
+                    yield return new WaitForSeconds(1f);
+                    enm.ChooseCard();
                 }
                 else
                 {
-                    jm.p1damage = 0;
-                    print("mp");
+                    jm.p1cust = demo.GetComponent<Cards>().mana;
+                    Destroy(demo);
+                    hand.Remove(g);
+                    drawed.Remove(temp);
+                    Destroy(g);
+                    draw = false;
+                    choosed = false;
+                    use = true;
+                    teleport = false;
+                    yield return new WaitForSeconds(1f);
+                    enm.ChooseCard();
                 }
-                jm.p1cust = demo.GetComponent<Cards>().mana;
-                Destroy(demo);
-                hand.Remove(g);
-                drawed.Remove(temp);
-                Destroy(g);
-                draw = false;
-                choosed = false;
-                use = true;
-                yield return new WaitForSeconds(1f);
-                enm.ChooseCard();
-            }
+                
+               }
+
+
             
-       
-        
         }
     }
 
+   
     public void SelectCard(GameObject g)
     {
         if (!choosed)

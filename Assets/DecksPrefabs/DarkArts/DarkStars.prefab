@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3645806047169146591}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.928978, y: 7.547337, z: 6.1294355}
+  m_LocalPosition: {x: -20.45, y: 27.98, z: -4.4292126}
   m_LocalScale: {x: 0.25004962, y: 0.25004962, z: 0.25004962}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -117,9 +117,12 @@ MonoBehaviour:
   - {fileID: 3341566164772357159, guid: 8bc53feece94f7041aefd60d82cc8034, type: 3}
   - {fileID: 6045696200685917915, guid: 1fa6b8aad5fc3ad42a5733b7b1f17ac4, type: 3}
   - {fileID: 7902613910569072854, guid: d49f3afc96b0ac242919bc59de74c7d7, type: 3}
-  buffDebuff: 0
-  bdRounds: 0
+  attackBuff: 0
+  defenseBuff: 0
+  abRounds: 0
+  dbRounds: 0
   isAttack: 1
-  isBuffDebuff: 0
+  isAttackBuff: 0
+  isDefenseBuff: 0
   isTeleport: 0
   isMana: 0

@@ -12,10 +12,12 @@ public class Board : MonoBehaviour
     public GameObject player;
     public bool pressed;
     public Deck d;
+    public JogoManagement jm;
     // Start is called before the first frame update
     void Start()
     {
         d = FindObjectOfType<Deck>();
+        jm = FindObjectOfType<JogoManagement>();
     }
 
     // Update is called once per frame
@@ -34,10 +36,12 @@ public class Board : MonoBehaviour
                 if (t <= 6.5 && t >= 1.5)
                 {
                     BoardPositions[number].GetComponent<MeshRenderer>().enabled = true;
+                    BoardPositions[number].GetComponent<BoxCollider>().enabled = true;
                 }
                 else
                 {
                     BoardPositions[number].GetComponent<MeshRenderer>().enabled = false;
+                    BoardPositions[number].GetComponent<BoxCollider>().enabled = false;
                 }
                 pressed = true;
             }
@@ -47,6 +51,7 @@ public class Board : MonoBehaviour
             for (int number = 1; number <= 9; number++)
             {
                 BoardPositions[number].GetComponent<MeshRenderer>().enabled = false;
+                BoardPositions[number].GetComponent<BoxCollider>().enabled = false;
             }
             pressed = false;
         }
@@ -57,7 +62,7 @@ public class Board : MonoBehaviour
         
         if (g.tag == "BoardPositions" && g.GetComponent<MeshRenderer>().enabled)
         {
-            player.transform.position = g.transform.position;
+            jm.lastBoardPlayer = g;
             walk();
         }
 
@@ -75,6 +80,7 @@ public class Board : MonoBehaviour
                 if (EnemyPositions[number] != g)
                 {
                     EnemyPositions[number].GetComponent<MeshRenderer>().enabled = false;
+                    BoardPositions[number].GetComponent<BoxCollider>().enabled = false;
                 }
             }
         }

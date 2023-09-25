@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 //using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -30,23 +31,34 @@ public class JogoManagement : MonoBehaviour
     public TMP_Text P1MPtext;
     public TMP_Text P2HPtext;
     public TMP_Text P2MPtext;
+    public TMP_Text P1Bufftext;
 
     public bool TurnStart;
     public bool TurnFinished;
     public bool bdActivated;
     public bool canPlay;
+    public bool playerCollision;
+    public bool enemyCollision;
 
     public Deck dc;
     public Enemy enm;
-
+    public Board b;
+   
     public GameObject skipTurn;
+    public GameObject player;
+    public GameObject enemy;
 
+    public GameObject playerPosition;
+    public GameObject enemyPosition;
 
+    public GameObject lastBoardPlayer;
+    public GameObject lastBoardEnemy;
 
     void Start()
     {
         dc = FindObjectOfType<Deck>();
         enm = FindObjectOfType<Enemy>();
+        b = FindObjectOfType<Board>();
     }
 
     
@@ -56,8 +68,11 @@ public class JogoManagement : MonoBehaviour
         P1MPtext.text = P1_MANA + "/100";
         P2HPtext.text = P2_HP + "/100";
         P2MPtext.text = P2_MANA + "/100";
+        P1Bufftext.text = "Attack: " + p1attackBuff + " / " + "Defense: " + p1defenseBuff;
         if (TurnStart)
         {
+            playerPosition.transform.position = lastBoardPlayer.transform.position;
+            enemyPosition.transform.position = lastBoardEnemy.transform.position;
             P1_MANA = P1_MANA + 5;
             P2_MANA = P2_MANA + 5;
             if (dc.drawed.Count < 5)
@@ -103,13 +118,20 @@ public class JogoManagement : MonoBehaviour
 
         if (TurnFinished)
         {
-
+            player.transform.position = lastBoardPlayer.transform.position ;
+            enemy.transform.position =  lastBoardEnemy.transform.position;
             P1_MANA = P1_MANA - p1cust;
             P2_MANA = P2_MANA - p2cust;
-         
-            P2_HP = (int) (P2_HP - (p1damage * p1attackBuff) * -p2defenseBuff);
-         
-            P1_HP = (int)(P1_HP - (p2damage * p2attackBuff) * -p1defenseBuff);
+            P1_HP = (int)(P1_HP - (p2damage + (p2damage * p2attackBuff)) - (p2damage * p1defenseBuff));
+            P2_HP = (int)(P2_HP - (p1damage + (p2damage * p1attackBuff)) - (p1damage * p2defenseBuff));
+            enemyCollision = false;
+            
+            playerCollision = false;
+            for(int i = 1; i <= 9; i++)
+            {
+                b.BoardPositions[i].GetComponent<MeshRenderer>().enabled = false;
+                b.BoardPositions[i].GetComponent<BoxCollider>().enabled = false;
+            }
             TurnFinished = false;
             TurnStart = true;
         }
