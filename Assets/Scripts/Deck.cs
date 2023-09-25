@@ -150,7 +150,6 @@ public class Deck : MonoBehaviour
         {
             
                 GameObject temp = drawed.Find(obj => obj.name == g.name);
-                print("temp" + temp.name);
                if (temp != null && temp.GetComponent<Cards>().mana <= jm.P1_MANA)
                {
 

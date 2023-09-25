@@ -142,7 +142,6 @@ public class Enemy : MonoBehaviour
                 }
                 hand.Remove(g);
                 drawed.Remove(temp);
-                Destroy(g);
                 draw = false;
                 use = true;
                 yield return new WaitForSeconds(1f);
@@ -225,6 +224,7 @@ public class Enemy : MonoBehaviour
                 {
                     choosed = g;
                 }
+
             }
         if (choosed != null)
         {
@@ -234,7 +234,7 @@ public class Enemy : MonoBehaviour
         {
             draw = false;
             use = true;
- 
+            jm.P2_MANA = jm.P2_MANA + 5;
             jm.TurnFinished = true;
         }
 

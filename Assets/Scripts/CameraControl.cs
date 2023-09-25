@@ -58,14 +58,14 @@ public class CameraControl : MonoBehaviour
             hitting = false;
         }
 
-        if (hitting)
+       /* if (hitting)
         {
             card.GetComponent<SpriteRenderer>().color = Color.gray;
         }
         else if(hitting == false && card != null)
         {
             card.GetComponent<SpriteRenderer>().color = Color.white;
-        }
+        }*/
        
     }
 
