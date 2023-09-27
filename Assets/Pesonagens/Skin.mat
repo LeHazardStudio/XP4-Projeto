@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Vermelho
-  m_Shader: {fileID: 4800000, guid: 7cd5de0b884b14f88ab763ef465e1799, type: 3}
+  m_Name: Skin
+  m_Shader: {fileID: 4800000, guid: 128c5f1edaefa4c4fb3f9f7a4615edb2, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _SEGMENTED_ON
@@ -70,28 +70,30 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Lumin: 0.18
+    - _Lumin: 0
     - _MaxLight: 1
     - _Metallic: 0
-    - _MinLight: 0.476
+    - _MinLight: 0.351
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Offset: 1.1
+    - _Offset: 0.2
+    - _OtlWidth: 5
     - _Parallax: 0.02
     - _Segmented: 1
-    - _ShnIntense: 0.253
+    - _ShnIntense: 0.0553
     - _ShnOverlap: 0
-    - _ShnRange: 0.311
-    - _ShnSmooth: 1
+    - _ShnRange: 0.052
+    - _ShnSmooth: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Steps: 2.3
-    - _StpSmooth: 0.198
+    - _Steps: 2.9
+    - _StpSmooth: 0
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.9433962, g: 0.022249907, b: 0.022249907, a: 1}
+    - _Color: {r: 1, g: 0.9607843, b: 0.8784314, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShnColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OtlColor: {r: 0.20784314, g: 0.19215687, b: 0, a: 1}
+    - _ShnColor: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_BuildTextureStacks: []
