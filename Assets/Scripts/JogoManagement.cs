@@ -122,8 +122,14 @@ public class JogoManagement : MonoBehaviour
             enemy.transform.position =  lastBoardEnemy.transform.position;
             P1_MANA = P1_MANA - p1cust;
             P2_MANA = P2_MANA - p2cust;
-            P1_HP = (int)(P1_HP - (p2damage + (p2damage * p2attackBuff)) - (p2damage * p1defenseBuff));
-            P2_HP = (int)(P2_HP - (p1damage + (p2damage * p1attackBuff)) - (p1damage * p2defenseBuff));
+            if (playerCollision)
+            {
+                P1_HP = (int)(P1_HP - (p2damage + (p2damage * p2attackBuff)) - (p2damage * p1defenseBuff));
+            }
+            if (enemyCollision)
+            {
+                P2_HP = (int)(P2_HP - (p1damage + (p2damage * p1attackBuff)) - (p1damage * p2defenseBuff));
+            }
             enemyCollision = false;
             
             playerCollision = false;
@@ -131,7 +137,10 @@ public class JogoManagement : MonoBehaviour
             {
                 b.BoardPositions[i].GetComponent<MeshRenderer>().enabled = false;
                 b.BoardPositions[i].GetComponent<BoxCollider>().enabled = false;
+                b.EnemyPositions[i].GetComponent<MeshRenderer>().enabled = false;
+                b.EnemyPositions[i].GetComponent<BoxCollider>().enabled = false;
             }
+            dc.attackAreas.Clear();
             TurnFinished = false;
             TurnStart = true;
         }

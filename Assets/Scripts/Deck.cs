@@ -194,7 +194,6 @@ public class Deck : MonoBehaviour
                             }
 
                         }
-                        attackAreas.Clear();
                         print("attack");
                     }
                     else if (demo.GetComponent<Cards>().isAttackBuff)
