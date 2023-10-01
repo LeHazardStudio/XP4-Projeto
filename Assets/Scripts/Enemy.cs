@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -16,17 +17,27 @@ public class Enemy : MonoBehaviour
     public List<int> get;
     public GameObject deckObject;
     public GameObject center;
+    public GameObject selectedCard;
+    public GameObject enemy;
+    public GameObject nextPosition;
+    public GameObject boardCenter;
     public List<GameObject> cardPlaces;
+    public List<GameObject> attackAreas;
+    public List<GameObject> positions;
     public bool decided;
+    public bool choosed;
     private int count;
     public bool deckFull;
     public bool draw;
     public bool use;
     public bool viewingCard;
+    public bool teleport;
     public int usedCard;
     public CameraControl cc;
     public JogoManagement jm;
     public Sprite backCard;
+    public Board b;
+   
    
 
 
@@ -34,7 +45,9 @@ public class Enemy : MonoBehaviour
     {
         jm = FindObjectOfType<JogoManagement>();
         cc = FindObjectOfType<CameraControl>();
-        
+        b = FindObjectOfType<Board>();
+        teleport = false;
+        jm.lastBoardEnemy = boardCenter;
 
     }
 
@@ -79,7 +92,7 @@ public class Enemy : MonoBehaviour
             while (deck.Count != deckBase.Count)
             {
                 print("ou");
-                int r = Random.Range(0, 30);
+                int r = UnityEngine.Random.Range(0, 30);
                 if (!get.Contains(r))
                 {
 
@@ -121,33 +134,131 @@ public class Enemy : MonoBehaviour
 
     public IEnumerator useCard(GameObject g)
     {
+        print("ta funcionando");
         if (!use)
         {
+
             GameObject temp = drawed.Find(obj => obj.name == g.name);
-            if (temp != null)
+            if (temp != null && temp.GetComponent<Cards>().mana <= jm.P2_MANA)
             {
 
                 GameObject demo = Instantiate(temp, center.transform.position, center.transform.rotation);
                 demo.transform.localScale = new Vector3(1, 1, 1);
                 yield return new WaitForSeconds(0.5f);
-                Destroy(demo);
-                jm.p2damage = temp.GetComponent<Cards>().damage;
-                jm.p2cust = temp.GetComponent<Cards>().mana;
-                jm.p2attackBuff = temp.GetComponent<Cards>().attackBuff;
-                if (!jm.bdActivated)
+                if (!teleport)
                 {
-                    jm.p2attackBuff = temp.GetComponent<Cards>().attackBuff;
-                    jm.p2dbRounds = temp.GetComponent<Cards>().abRounds;
-                    jm.bdActivated = true;
+                    if (demo.GetComponent<Cards>().isAttack)
+                    {
+                        jm.p2damage = demo.GetComponent<Cards>().damage;
+                        print(demo.GetComponent<Cards>().attackAreaP2.Count + "contou");
+                        print("Carta inimigo: " + demo.name);
+                        for (int i = 0; i < demo.GetComponent<Cards>().attackAreaP2.Count; i++)
+                        {
+                            print(demo.GetComponent<Cards>().attackAreaP2.Count + "contou");
+                            GameObject area = b.BoardPositions.Find(obj => obj.name == demo.GetComponent<Cards>().attackAreaP2[i].name);
+                            print("Esse ataque pega em: " + demo.GetComponent<Cards>().attackAreaP2[i].name);
+                            if (b.BoardPositions.Contains(area))
+                            {
+                                print(demo.GetComponent<Cards>().attackAreaP2.Count + "contou dnv inimigo");
+                                //area.GetComponent<MeshRenderer>().enabled = true;
+                               // area.GetComponent<BoxCollider>().enabled = true;
+                                print(area.name + " " + i);
+                                attackAreas.Add(area);
+                                /*for (int number = 1; number <= 9; number++)
+                                {
+                                    if (b.BoardPositions[number] != area)
+                                    {
+                                        if (!attackAreas.Contains(b.BoardPositions[number]))
+                                        {
+                                            print("terminou");
+                                            b.BoardPositions[number].GetComponent<MeshRenderer>().enabled = false;
+                                            b.BoardPositions[number].GetComponent<BoxCollider>().enabled = false;
+                                        }
+                                    }
+                                }*/
+
+
+
+                            }
+                            else
+                            {
+                                print("error");
+                            }
+
+                        }
+                        print("attack");
+                    }
+                    else if (demo.GetComponent<Cards>().isAttackBuff)
+                    {
+                        jm.p2attackBuff = demo.GetComponent<Cards>().attackBuff + jm.p2attackBuff;
+                        jm.p2abRounds = demo.GetComponent<Cards>().abRounds;
+                        jm.bdActivated = true;
+                        jm.p2damage = 0;
+                        print("buff");
+                    }
+                    else if (demo.GetComponent<Cards>().isDefenseBuff)
+                    {
+                        jm.p2defenseBuff = demo.GetComponent<Cards>().defenseBuff + jm.p2defenseBuff;
+                        jm.p2dbRounds = demo.GetComponent<Cards>().dbRounds;
+                        jm.bdActivated = true;
+                        jm.p2damage = 0;
+                        print("buff");
+                    }
+                    else if (demo.GetComponent<Cards>().isTeleport)
+                    {
+                            for (int number = 1; number <= 9; number++)
+                            {
+                                float t = Vector3.Distance(enemy.transform.position, b.EnemyPositions[number].transform.position);
+                                if (t <= 6.5 && t >= 1.5)
+                                {
+                                    positions.Add(b.EnemyPositions[number]);
+                                }
+
+                            }
+                            int rb = UnityEngine.Random.Range(0, positions.Count);
+                            nextPosition = positions[rb];
+                            jm.lastBoardEnemy = nextPosition;
+                            positions.Clear();
+                        Destroy(demo);
+                        jm.p2damage = 0;
+                        print("tp");
+                        selectedCard = g;
+                        jm.walk = true;
+                        jm.TurnFinished = true;
+                        yield break;
+                    }
+                    else
+                    {
+                        jm.p2damage = 0;
+                        print("mp");
+                    }
+                    jm.p2cust = demo.GetComponent<Cards>().mana;
+                    Destroy(demo);
+                    hand.Remove(g);
+                    drawed.Remove(temp);
+                    draw = false;
+                    choosed = false;
+                    use = true;
+                    yield return new WaitForSeconds(1f);
+                    jm.TurnFinished = true;
+                    
                 }
-                hand.Remove(g);
-                drawed.Remove(temp);
-                draw = false;
-                use = true;
-                yield return new WaitForSeconds(1f);
-                jm.TurnFinished = true;
+                else
+                {
+                    jm.p2cust = demo.GetComponent<Cards>().mana;
+                    Destroy(demo);
+                    hand.Remove(g);
+                    drawed.Remove(temp);
+                    draw = false;
+                    choosed = false;
+                    use = true;
+                    teleport = false;
+                    yield return new WaitForSeconds(1f);
+                }
+
             }
-            
+
+
 
         }
     }
@@ -156,7 +267,7 @@ public class Enemy : MonoBehaviour
     {
         if (!draw && deck.Count > 0)
         {
-            int r = Random.Range(0, deck.Count);
+            int r = UnityEngine.Random.Range(0, deck.Count);
             GameObject g = deck[r];
             drawed.Add(g);
             print(drawed.Count);
@@ -199,7 +310,7 @@ public class Enemy : MonoBehaviour
 
     public void ChooseDeck()
     {
-        int r = Random.Range(1,4);
+        int r = UnityEngine.Random.Range(1,4);
         if(r == 1)
         {
             fireDeck();
@@ -218,6 +329,30 @@ public class Enemy : MonoBehaviour
     public void ChooseCard()
     {
         GameObject choosed = null;
+        
+        int r = UnityEngine.Random.Range(1, 3);
+        if(r == 1)
+        {
+           for(int number = 1; number <= 9; number++)
+            {
+                float t = Vector3.Distance(enemy.transform.position, b.EnemyPositions[number].transform.position);
+                if(t <= 6.5 && t>= 1.5)
+                {
+                    positions.Add(b.EnemyPositions[number]);
+                }
+                
+            }
+            int rb = UnityEngine.Random.Range(0, positions.Count);
+            nextPosition = positions[rb];
+            print(nextPosition.name);
+            jm.lastBoardEnemy = nextPosition;
+            jm.walk = true;
+            positions.Clear();
+        }
+        else
+        {
+            print("dont walk");
+        }
             foreach (GameObject g in drawed)
             { 
                 if (g.GetComponent<Cards>().mana < jm.P2_MANA)

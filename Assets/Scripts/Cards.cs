@@ -6,7 +6,8 @@ public class Cards : MonoBehaviour
 {
     public int mana;
     public int damage; 
-    public List<GameObject> attackArea;
+    public List<GameObject> attackAreaP1;
+    public List<GameObject> attackAreaP2;
     public float attackBuff;
     public float defenseBuff;
     public int abRounds;

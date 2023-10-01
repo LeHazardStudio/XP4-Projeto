@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -39,6 +40,7 @@ public class JogoManagement : MonoBehaviour
     public bool canPlay;
     public bool playerCollision;
     public bool enemyCollision;
+    public bool walk;
 
     public Deck dc;
     public Enemy enm;
@@ -71,8 +73,10 @@ public class JogoManagement : MonoBehaviour
         P1Bufftext.text = "Attack: " + p1attackBuff + " / " + "Defense: " + p1defenseBuff;
         if (TurnStart)
         {
+        
             playerPosition.transform.position = lastBoardPlayer.transform.position;
             enemyPosition.transform.position = lastBoardEnemy.transform.position;
+            
             P1_MANA = P1_MANA + 5;
             P2_MANA = P2_MANA + 5;
             if (dc.drawed.Count < 5)
@@ -118,31 +122,13 @@ public class JogoManagement : MonoBehaviour
 
         if (TurnFinished)
         {
-            player.transform.position = lastBoardPlayer.transform.position ;
-            enemy.transform.position =  lastBoardEnemy.transform.position;
+
             P1_MANA = P1_MANA - p1cust;
             P2_MANA = P2_MANA - p2cust;
-            if (playerCollision)
-            {
-                P1_HP = (int)(P1_HP - (p2damage + (p2damage * p2attackBuff)) - (p2damage * p1defenseBuff));
-            }
-            if (enemyCollision)
-            {
-                P2_HP = (int)(P2_HP - (p1damage + (p2damage * p1attackBuff)) - (p1damage * p2defenseBuff));
-            }
-            enemyCollision = false;
-            
-            playerCollision = false;
-            for(int i = 1; i <= 9; i++)
-            {
-                b.BoardPositions[i].GetComponent<MeshRenderer>().enabled = false;
-                b.BoardPositions[i].GetComponent<BoxCollider>().enabled = false;
-                b.EnemyPositions[i].GetComponent<MeshRenderer>().enabled = false;
-                b.EnemyPositions[i].GetComponent<BoxCollider>().enabled = false;
-            }
-            dc.attackAreas.Clear();
+            StartCoroutine(turnFinished());
             TurnFinished = false;
             TurnStart = true;
+
         }
 
         /*if(P1_HP <= 0 || P2_HP <= 0)
@@ -177,7 +163,48 @@ public class JogoManagement : MonoBehaviour
             P2_MANA = 100;
         }
 
+        
+    }
 
+    public IEnumerator turnFinished()
+    {
+        walk = false;
+        player.transform.position = lastBoardPlayer.transform.position;
+        enemy.transform.position = lastBoardEnemy.transform.position;
+        for (int i = 0; i < dc.attackAreas.Count; i++)
+        {
+            dc.attackAreas[i].GetComponent<MeshRenderer>().enabled = true;
+            dc.attackAreas[i].GetComponent<BoxCollider>().enabled = true;
+        }
+        for (int i = 0; i < enm.attackAreas.Count; i++)
+        {
+            enm.attackAreas[i].GetComponent<MeshRenderer>().enabled = true;
+            enm.attackAreas[i].GetComponent<BoxCollider>().enabled = true;
+        }
+        yield return new WaitForSeconds(0.5f);
+       
+        if (playerCollision)
+        {
+            P1_HP = (int)(P1_HP - (p2damage + (p2damage * p2attackBuff)) - (p2damage * p1defenseBuff));
+        }
+        if (enemyCollision)
+        {
+            P2_HP = (int)(P2_HP - (p1damage + (p1damage * p1attackBuff)) - (p1damage * p2defenseBuff));
+        }
+        enemyCollision = false;
+
+        playerCollision = false;
+        for (int i = 1; i <= 9; i++)
+        {
+            b.BoardPositions[i].GetComponent<MeshRenderer>().enabled = false;
+            b.BoardPositions[i].GetComponent<BoxCollider>().enabled = false;
+            b.EnemyPositions[i].GetComponent<MeshRenderer>().enabled = false;
+            b.EnemyPositions[i].GetComponent<BoxCollider>().enabled = false;
+        }
+        dc.attackAreas.Clear();
+        enm.attackAreas.Clear();
+        
+       
     }
 
     

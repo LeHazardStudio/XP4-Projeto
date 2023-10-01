@@ -161,18 +161,18 @@ public class Deck : MonoBehaviour
                     if (demo.GetComponent<Cards>().isAttack)
                     {
                         jm.p1damage = demo.GetComponent<Cards>().damage;
-                        print(demo.GetComponent<Cards>().attackArea.Count + "contou");
-                        for (int i = 0; i < demo.GetComponent<Cards>().attackArea.Count; i++)
+                        print(demo.GetComponent<Cards>().attackAreaP1.Count + "contou");
+                        for (int i = 0; i < demo.GetComponent<Cards>().attackAreaP1.Count; i++)
                         {
-                            print(demo.GetComponent<Cards>().attackArea.Count + "contou");
-                            GameObject area = b.EnemyPositions.Find(obj => obj.name == demo.GetComponent<Cards>().attackArea[i].name);
+                            print(demo.GetComponent<Cards>().attackAreaP1.Count + "contou");
+                            GameObject area = b.EnemyPositions.Find(obj => obj.name == demo.GetComponent<Cards>().attackAreaP1[i].name);
                             if (b.EnemyPositions.Contains(area))
                             {
-                                print(demo.GetComponent<Cards>().attackArea.Count + "contou dnv");
-                                area.GetComponent<MeshRenderer>().enabled = true;
-                                area.GetComponent<BoxCollider>().enabled = true;
+                                print(demo.GetComponent<Cards>().attackAreaP1.Count + "contou dnv");
+                                //area.GetComponent<MeshRenderer>().enabled = true;
+                               // area.GetComponent<BoxCollider>().enabled = true;
                                 attackAreas.Add(area);
-                                for (int number = 1; number <= 9; number++)
+                               /* for (int number = 1; number <= 9; number++)
                                 {
                                     if (b.EnemyPositions[number] != area)
                                     {
@@ -183,7 +183,7 @@ public class Deck : MonoBehaviour
                                             b.EnemyPositions[number].GetComponent<BoxCollider>().enabled = false;
                                         }
                                     }
-                                }
+                                }*/
 
 
 
@@ -257,6 +257,7 @@ public class Deck : MonoBehaviour
                     draw = false;
                     choosed = false;
                     use = true;
+                    jm.walk = true;
                     teleport = false;
                     yield return new WaitForSeconds(1f);
                     enm.ChooseCard();
@@ -316,6 +317,7 @@ public class Deck : MonoBehaviour
     {
         image.sprite = g.GetComponent<SpriteRenderer>().sprite;
         image.gameObject.SetActive(true);
+        
     }
         
     public void fireDeck()

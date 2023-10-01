@@ -63,6 +63,7 @@ public class Board : MonoBehaviour
         if (g.tag == "BoardPositions" && g.GetComponent<MeshRenderer>().enabled)
         {
             jm.lastBoardPlayer = g;
+            jm.walk = true;
             walk();
         }
 

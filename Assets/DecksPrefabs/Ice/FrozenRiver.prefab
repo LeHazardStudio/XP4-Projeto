@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7947215757721648594}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.4292126}
+  m_LocalPosition: {x: 0, y: 0, z: -12.569212}
   m_LocalScale: {x: 0.25004962, y: 0.25004962, z: 0.25004962}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20.45, y: 27.98}
+  m_AnchoredPosition: {x: -11.16, y: 27.52}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &2784774791236428992
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mana: 20
   damage: 10
-  attackArea:
+  attackAreaP1:
   - {fileID: 3341566164772357159, guid: 8bc53feece94f7041aefd60d82cc8034, type: 3}
   - {fileID: 9005322034182589429, guid: 50bcae58c5b56d74781c3046e1dd3219, type: 3}
   - {fileID: 3196205847637969253, guid: b21958f837667fa4ba9cfe03721b1b3d, type: 3}
@@ -126,6 +126,14 @@ MonoBehaviour:
   - {fileID: 7902613910569072854, guid: d49f3afc96b0ac242919bc59de74c7d7, type: 3}
   - {fileID: 8089800498556563585, guid: 5246e25790da0fb42a5c3da87156fd59, type: 3}
   - {fileID: 4207662606120391577, guid: 94d86839643c35f48816f901870f3549, type: 3}
+  attackAreaP2:
+  - {fileID: 775669665019537464, guid: 26467544692f5914c97423d1eca94d8b, type: 3}
+  - {fileID: 5486050817125696357, guid: eb486879efa1ba0439bf6a3f399c2d5d, type: 3}
+  - {fileID: 2603028807831531673, guid: 4c197bb017b0c944b85692cf35e867a0, type: 3}
+  - {fileID: 3959009805136319369, guid: a192eb9fc9edb2b47ab77ab713b33f6b, type: 3}
+  - {fileID: 1332553646705401137, guid: f65e6e71875e86743b9c2d0e36caeffd, type: 3}
+  - {fileID: 8621041239580306646, guid: 842efe780d574ef42987c656cdd1dc42, type: 3}
+  - {fileID: 3197870252751032786, guid: b5d79b3754f03b74192e7f46d6279c81, type: 3}
   attackBuff: 0
   defenseBuff: 0
   abRounds: 0

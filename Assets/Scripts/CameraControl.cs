@@ -76,6 +76,7 @@ public class CameraControl : MonoBehaviour
         if(Physics.Raycast (ray2, out hit2, 1000))
         {
             Debug.Log(hit2.collider.gameObject.name);
+            
             if (b.pressed)
             {
                 b.movePlayer(hit2.collider.gameObject);

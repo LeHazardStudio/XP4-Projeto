@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4929067669093757716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.16, y: 27.52, z: -12.569212}
+  m_LocalPosition: {x: -20.45, y: 27.98, z: -4.4292126}
   m_LocalScale: {x: 0.25004962, y: 0.25004962, z: 0.25004962}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -113,12 +113,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mana: 30
   damage: 30
-  attackArea:
+  attackAreaP1:
   - {fileID: 9005322034182589429, guid: 50bcae58c5b56d74781c3046e1dd3219, type: 3}
   - {fileID: 6045696200685917915, guid: 1fa6b8aad5fc3ad42a5733b7b1f17ac4, type: 3}
   - {fileID: 4200265149072607775, guid: 31d4a8b6478f329439ecf517d0ede409, type: 3}
   - {fileID: 8310445633435083439, guid: 463509b0b9015e34086a7c3622a6f731, type: 3}
   - {fileID: 8089800498556563585, guid: 5246e25790da0fb42a5c3da87156fd59, type: 3}
+  attackAreaP2:
+  - {fileID: 5486050817125696357, guid: eb486879efa1ba0439bf6a3f399c2d5d, type: 3}
+  - {fileID: 6363917658560455198, guid: b0c424314f861d14e822dce6fcf95743, type: 3}
+  - {fileID: 3959009805136319369, guid: a192eb9fc9edb2b47ab77ab713b33f6b, type: 3}
+  - {fileID: 897805079810472042, guid: deeadec4f2e3ca347bd2ab0cabb77779, type: 3}
+  - {fileID: 8621041239580306646, guid: 842efe780d574ef42987c656cdd1dc42, type: 3}
   attackBuff: 0
   defenseBuff: 0
   abRounds: 0
