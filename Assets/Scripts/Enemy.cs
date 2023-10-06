@@ -145,8 +145,8 @@ public class Enemy : MonoBehaviour
                 GameObject demo = Instantiate(temp, center.transform.position, center.transform.rotation);
                 demo.transform.localScale = new Vector3(1, 1, 1);
                 yield return new WaitForSeconds(0.5f);
-                if (!teleport)
-                {
+                //if (!teleport)
+                //{
                     if (demo.GetComponent<Cards>().isAttack)
                     {
                         jm.p2damage = demo.GetComponent<Cards>().damage;
@@ -219,13 +219,13 @@ public class Enemy : MonoBehaviour
                             nextPosition = positions[rb];
                             jm.lastBoardEnemy = nextPosition;
                             positions.Clear();
-                        Destroy(demo);
+                       /* Destroy(demo);
                         jm.p2damage = 0;
                         print("tp");
                         selectedCard = g;
                         jm.walk = true;
                         jm.TurnFinished = true;
-                        yield break;
+                        yield break;*/
                     }
                     else
                     {
@@ -242,8 +242,8 @@ public class Enemy : MonoBehaviour
                     yield return new WaitForSeconds(1f);
                     jm.TurnFinished = true;
                     
-                }
-                else
+            }
+               /* else
                 {
                     jm.p2cust = demo.GetComponent<Cards>().mana;
                     Destroy(demo);
@@ -254,9 +254,10 @@ public class Enemy : MonoBehaviour
                     use = true;
                     teleport = false;
                     yield return new WaitForSeconds(1f);
-                }
+                }*/
 
-            }
+            
+
 
 
 
