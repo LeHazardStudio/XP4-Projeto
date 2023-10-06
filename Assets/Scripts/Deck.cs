@@ -19,6 +19,7 @@ public class Deck : MonoBehaviour
     public GameObject gameHud;
     public GameObject center;
     public GameObject selectedCard;
+    public GameObject cardHud;
     public List<GameObject> cardPlaces;
     public List<GameObject> attackAreas;
     public bool decided;
@@ -44,6 +45,7 @@ public class Deck : MonoBehaviour
         enm = FindObjectOfType<Enemy>();
         b = FindObjectOfType<Board>();
         image.gameObject.SetActive(false);
+        cardHud.SetActive(false);
         
     }
 
@@ -270,21 +272,34 @@ public class Deck : MonoBehaviour
         }
     }
 
-   
+
     public void SelectCard(GameObject g)
     {
+        print("clicou em: " + g.name);
         if (!choosed)
         {
 
             GameObject temp = drawed.Find(obj => obj.name == g.name);
             if (temp != null && temp.GetComponent<Cards>().mana <= jm.P1_MANA)
             {
-                for(int i = 1; i <= 9; i++)
+                selectedCard = g;
+                cardHud.gameObject.SetActive(true);
+                image.sprite = g.GetComponent<SpriteRenderer>().sprite;
+                image.gameObject.SetActive(true);
+                for (int i = 1; i < 9; i++)
                 {
-                    selectedCard = g;
-                   //* b.EnemyPositions[i].GetComponent<MeshRenderer>().enabled = true;
+                    b.EnemyPositions[i].GetComponent<MeshRenderer>().enabled = false;
+                    b.EnemyPositions[i].GetComponent<BoxCollider>().enabled = false;
                 }
-                
+                if (g.GetComponent<Cards>().isAttack)
+                {
+                    for (int i = 0; i < g.GetComponent<Cards>().attackAreaP1.Count; i++)
+                    {
+                        GameObject area = b.EnemyPositions.Find(obj => obj.name == g.GetComponent<Cards>().attackAreaP1[i].name);
+                        area.GetComponent<MeshRenderer>().enabled = true;
+                        area.GetComponent<BoxCollider>().enabled = true;
+                    }
+                }
             }
         }
     }
@@ -313,12 +328,12 @@ public class Deck : MonoBehaviour
         }
     }
 
-    public void ViewCard(GameObject g)
+    /*public void ViewCard(GameObject g)
     {
         image.sprite = g.GetComponent<SpriteRenderer>().sprite;
         image.gameObject.SetActive(true);
         
-    }
+    }*/
         
     public void fireDeck()
     {
@@ -358,4 +373,27 @@ public class Deck : MonoBehaviour
         enm.ChooseCard();
         //jm.TurnFinished = true;
     }
+
+    public void SummonCard()
+    {
+        for (int i = 1; i <= 9; i++)
+        {
+            b.EnemyPositions[i].GetComponent<MeshRenderer>().enabled = false;
+            b.EnemyPositions[i].GetComponent<BoxCollider>().enabled = false;
+        }
+        StartCoroutine(useCard(selectedCard));
+        cardHud.SetActive(false);
+        
+    }
+
+    public void Back()
+    {
+        cardHud.SetActive(false);
+        for (int i = 1; i <= 9; i++)
+        {
+            b.EnemyPositions[i].GetComponent<MeshRenderer>().enabled = false;
+            b.EnemyPositions[i].GetComponent<BoxCollider>().enabled = false;
+        }
+    }
+
 }

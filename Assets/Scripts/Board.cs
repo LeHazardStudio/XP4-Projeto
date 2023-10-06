@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class Board : MonoBehaviour
 {
@@ -11,13 +13,16 @@ public class Board : MonoBehaviour
     public List<int> positionsIndex;
     public GameObject player;
     public bool pressed;
+    public bool pressedStone;
     public Deck d;
     public JogoManagement jm;
+    public Enemy enm;
     // Start is called before the first frame update
     void Start()
     {
         d = FindObjectOfType<Deck>();
         jm = FindObjectOfType<JogoManagement>();
+        enm = FindObjectOfType<Enemy>();
     }
 
     // Update is called once per frame
@@ -68,6 +73,45 @@ public class Board : MonoBehaviour
         }
 
         
+    }
+
+    public void throwStone()
+    {
+        if (!pressedStone)
+        {
+            for (int number = 1; number <= 9; number++)
+            {
+               
+                
+                EnemyPositions[number].GetComponent<MeshRenderer>().enabled = true;
+                EnemyPositions[number].GetComponent<BoxCollider>().enabled = true;
+                pressedStone = true;
+            }
+        }
+        else
+        {
+            for (int number = 1; number <= 9; number++)
+            {
+                EnemyPositions[number].GetComponent<MeshRenderer>().enabled = false;
+                EnemyPositions[number].GetComponent<BoxCollider>().enabled = false;
+            }
+            pressedStone = false;
+        }
+    }
+
+    public IEnumerator useStone(GameObject g)
+    {
+        if (g.tag == "EnemyPositions" && g.GetComponent<MeshRenderer>().enabled)
+        {
+            d.attackAreas.Clear();
+            d.attackAreas.Add(g);
+            d.draw = false;
+            d.choosed = false;
+            d.use = true;
+            throwStone();
+            yield return new WaitForSeconds(1f);
+            enm.ChooseCard();
+        }
     }
 
     public void cardAction(GameObject g, GameObject card)

@@ -45,7 +45,6 @@ public class CameraControl : MonoBehaviour
         {
             if(hit.collider.gameObject.tag == "Card" && hit.collider.gameObject != null)
             {
-                Debug.Log(hit.collider.name);
                 hitting = true;
                 card = hit.collider.gameObject;
             }
@@ -75,17 +74,21 @@ public class CameraControl : MonoBehaviour
         RaycastHit hit2;
         if(Physics.Raycast (ray2, out hit2, 1000))
         {
-            Debug.Log(hit2.collider.gameObject.name);
             
             if (b.pressed)
             {
                 b.movePlayer(hit2.collider.gameObject);
+                
+            }
+            if (b.pressedStone)
+            {
+                StartCoroutine(b.useStone(hit2.collider.gameObject));
             }
             if (!d.choosed)
             {
                 d.SelectCard(hit2.collider.gameObject);
                 //* b.cardAction(hit2.collider.gameObject, d.selectedCard);
-                StartCoroutine(d.useCard(hit2.collider.gameObject));
+                //StartCoroutine(d.useCard(hit2.collider.gameObject));
             }
             if (d.teleport)
             {
@@ -105,7 +108,7 @@ public class CameraControl : MonoBehaviour
         if(Physics.Raycast (ray2, out hit2, 1000))
         {
             Debug.Log(hit2.collider.gameObject.name);
-            d.ViewCard(hit2.collider.gameObject);
+            //d.ViewCard(hit2.collider.gameObject);
         }
         else
         {
