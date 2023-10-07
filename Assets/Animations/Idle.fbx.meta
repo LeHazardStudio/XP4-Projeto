@@ -19,19 +19,86 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Idle 1|Idle 1' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Igor_Jogos_Spine' has translation animation
+      that will be discarded.\n\t'Igor_Jogos_Neck' has translation animation that
+      will be discarded.\n\t'Igor_Jogos_Head' has translation animation that will
+      be discarded.\n\nClip 'Idle 1|Idle 2' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'Igor_Jogos_Spine' has translation animation that will
+      be discarded.\n\t'Igor_Jogos_Neck' has translation animation that will be discarded.\n\t'Igor_Jogos_Head'
+      has translation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle 1|Idle 1
+      takeName: Idle 1|Idle 1
+      internalID: -896678932202131361
+      firstFrame: 0
+      lastFrame: 239
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle 1|Idle 2
+      takeName: Idle 1|Idle 2
+      internalID: -7860834690964795620
+      firstFrame: 0
+      lastFrame: 728
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -79,8 +146,806 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
-    skeleton: []
+    human:
+    - boneName: Idle 1
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftHandThumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftHandThumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftHandThumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftHandIndex1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftHandIndex2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftHandIndex3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftHandRing1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftHandRing2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftHandRing3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftHandPinky1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftHandPinky2
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_LeftHandPinky3
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightHandRing1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightHandRing2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightHandRing3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightHandPinky1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightHandPinky2
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Igor_Jogos_RightHandPinky3
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Idle(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.000000037748947, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Idle 1
+      parentName: Idle(Clone)
+      position: {x: 0, y: 0.93778825, z: 0.000000070801036}
+      rotation: {x: 0.055340637, y: 0.010148522, z: 0.0054157376, w: 0.9984012}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: Igor_Jogos_Spine
+      parentName: Idle 1
+      position: {x: -0.000000011175871, y: 0.08399667, z: -0.000000038882717}
+      rotation: {x: -0.12182649, y: -0.0006079967, z: -0.00007462782, w: 0.99255127}
+      scale: {x: 0.9999999, y: 0.99999994, z: 1}
+    - name: Igor_Jogos_Spine1
+      parentName: Igor_Jogos_Spine
+      position: {x: 2.7099388e-12, y: 0.23037797, z: -6.5429044e-11}
+      rotation: {x: 0.12865704, y: 0.0011402314, z: -0.013391682, w: 0.99159807}
+      scale: {x: 1, y: 0.99999994, z: 0.9999999}
+    - name: Igor_Jogos_Neck
+      parentName: Igor_Jogos_Spine1
+      position: {x: -0.000000022901222, y: 0.25038084, z: 0.000000060456806}
+      rotation: {x: 0.087039776, y: -0.006642511, z: 0.0062183067, w: 0.9961633}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: Igor_Jogos_Head
+      parentName: Igor_Jogos_Neck
+      position: {x: -0.000000019525178, y: 0.15761068, z: 0.020386362}
+      rotation: {x: -0.0012921089, y: -0.006175651, z: -0.004756113, w: 0.9999688}
+      scale: {x: 0.9999999, y: 0.9999999, z: 0.99999994}
+    - name: Igor_Jogos_HeadEnd
+      parentName: Igor_Jogos_Head
+      position: {x: -0.0000000012665987, y: 0.20386288, z: 0.0000000013783574}
+      rotation: {x: -0.000000003739842, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_HeadEnd_end
+      parentName: Igor_Jogos_HeadEnd
+      position: {x: -0, y: 0.20386276, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_LeftShoulder
+      parentName: Igor_Jogos_Spine1
+      position: {x: -0.04075102, y: 0.177821, z: -0.004160423}
+      rotation: {x: -0.6486703, y: 0.7600057, z: 0.003009652, w: 0.040113468}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: Igor_Jogos_LeftArm
+      parentName: Igor_Jogos_LeftShoulder
+      position: {x: 0.00000004529953, y: 0.14658098, z: 0.0000000011920929}
+      rotation: {x: -0.05537741, y: -0.3331859, z: -0.08512303, w: 0.9373765}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Igor_Jogos_LeftForeArm
+      parentName: Igor_Jogos_LeftArm
+      position: {x: 5.9604643e-10, y: 0.29639494, z: -0.00000003159046}
+      rotation: {x: -0.02289045, y: -0.10509755, z: 0.007945315, w: 0.9941667}
+      scale: {x: 1.0000001, y: 0.9999999, z: 0.99999994}
+    - name: Igor_Jogos_LeftHand
+      parentName: Igor_Jogos_LeftForeArm
+      position: {x: 0.0000000047683715, y: 0.225172, z: -0.0000000032782554}
+      rotation: {x: 0.019411888, y: 0.2504472, z: -0.08553598, w: 0.9641489}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+    - name: Igor_Jogos_LeftHandThumb1
+      parentName: Igor_Jogos_LeftHand
+      position: {x: 0.02876903, y: 0.025316784, z: -0.040276613}
+      rotation: {x: -0.2778192, y: -0.32140076, z: 0.25976488, w: 0.8672026}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: Igor_Jogos_LeftHandThumb2
+      parentName: Igor_Jogos_LeftHandThumb1
+      position: {x: 0.000000011995435, y: 0.03217598, z: -0.000000005662441}
+      rotation: {x: 0.031093765, y: -0.028510084, z: -0.010554593, w: 0.9990541}
+      scale: {x: 0.9999999, y: 0.99999994, z: 0.9999999}
+    - name: Igor_Jogos_LeftHandThumb3
+      parentName: Igor_Jogos_LeftHandThumb2
+      position: {x: 0.000000008940696, y: 0.027501144, z: -0.000000017881392}
+      rotation: {x: 0.0000000046566133, y: -0.0000000037252903, z: -0.0000000034924597, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_LThumb3End
+      parentName: Igor_Jogos_LeftHandThumb3
+      position: {x: -0.0000000023841857, y: 0.02803223, z: -0.0000000023841857}
+      rotation: {x: 0.0000000046566133, y: -0.0000000037252903, z: -0.0000000034924597, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_LThumb3End_end
+      parentName: Igor_Jogos_LThumb3End
+      position: {x: -0, y: 0.028032226, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_LeftHandIndex1
+      parentName: Igor_Jogos_LeftHand
+      position: {x: 0.00000004934147, y: 0.10356815, z: -0.04027661}
+      rotation: {x: -0.0179268, y: -0.15393025, z: -0.058873225, w: 0.9861633}
+      scale: {x: 1, y: 0.99999994, z: 1.0000001}
+    - name: Igor_Jogos_LeftHandIndex2
+      parentName: Igor_Jogos_LeftHandIndex1
+      position: {x: 0.00000002503395, y: 0.048417356, z: -0.000000009536743}
+      rotation: {x: 0.00000038929278, y: -0.00000004470348, z: -0.04006376, w: 0.9991971}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Igor_Jogos_LeftHandIndex3
+      parentName: Igor_Jogos_LeftHandIndex2
+      position: {x: 0.0000000011920929, y: 0.02420882, z: 0}
+      rotation: {x: -0.0000015661477, y: -0.00000012317953, z: -0.04006114, w: 0.99919724}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_LIndex3End
+      parentName: Igor_Jogos_LeftHandIndex3
+      position: {x: 0.000000023841856, y: 0.024676198, z: 0.000000009536743}
+      rotation: {x: -0.000000005587936, y: 0.000000011175871, z: 0.000000011175871, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_LIndex3End_end
+      parentName: Igor_Jogos_LIndex3End
+      position: {x: -0, y: 0.024676284, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_LeftHandMiddle1
+      parentName: Igor_Jogos_LeftHand
+      position: {x: 0.00000007791444, y: 0.10356811, z: -0.01334876}
+      rotation: {x: -0.020227192, y: -0.0756949, z: -0.064158134, w: 0.9948593}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: Igor_Jogos_LeftHandMiddle2
+      parentName: Igor_Jogos_LeftHandMiddle1
+      position: {x: -0.00000002026558, y: 0.05325912, z: 0}
+      rotation: {x: 0.00000070407964, y: -0.00000008195636, z: -0.039052475, w: 0.9992372}
+      scale: {x: 0.9999999, y: 0.9999998, z: 1}
+    - name: Igor_Jogos_LeftHandMiddle3
+      parentName: Igor_Jogos_LeftHandMiddle2
+      position: {x: 0.000000009536743, y: 0.029050473, z: -0.000000009536743}
+      rotation: {x: -0.0000014919036, y: -0.0000000038673487, z: -0.039051987, w: 0.9992372}
+      scale: {x: 0.99999994, y: 0.9999999, z: 0.99999994}
+    - name: Igor_Jogos_LMiddle3End
+      parentName: Igor_Jogos_LeftHandMiddle3
+      position: {x: -0.000000019073486, y: 0.02961134, z: 0.000000014305114}
+      rotation: {x: 0.0000000055879354, y: -0.000000007450581, z: 0.0000000037252903, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_LMiddle3End_end
+      parentName: Igor_Jogos_LMiddle3End
+      position: {x: -0, y: 0.029611511, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_LeftHandRing1
+      parentName: Igor_Jogos_LeftHand
+      position: {x: 0.000000045839695, y: 0.09781483, z: 0.013348747}
+      rotation: {x: -0.020150838, y: 0.07953955, z: -0.07413717, w: 0.9938668}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Igor_Jogos_LeftHandRing2
+      parentName: Igor_Jogos_LeftHandRing1
+      position: {x: 0.000000019073486, y: 0.048417352, z: 0.000000021457671}
+      rotation: {x: 0.0000011287625, y: 0.000000022351735, z: -0.0385495, w: 0.9992567}
+      scale: {x: 0.9999998, y: 0.9999998, z: 1}
+    - name: Igor_Jogos_LeftHandRing3
+      parentName: Igor_Jogos_LeftHandRing2
+      position: {x: -0.000000023841856, y: 0.02420883, z: 0.000000011920928}
+      rotation: {x: -0.0000007994252, y: 0.00000013441428, z: -0.03853864, w: 0.9992572}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Igor_Jogos_LRing3End
+      parentName: Igor_Jogos_LeftHandRing3
+      position: {x: -0.0000000047683715, y: 0.02467622, z: -0.000000009536743}
+      rotation: {x: 0, y: -0, z: -0.000000007450581, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_LRing3End_end
+      parentName: Igor_Jogos_LRing3End
+      position: {x: -0, y: 0.024676284, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_LeftHandPinky1
+      parentName: Igor_Jogos_LeftHand
+      position: {x: 0.00000004149973, y: 0.09206091, z: 0.04027662}
+      rotation: {x: -0.02383344, y: 0.15677932, z: -0.08152968, w: 0.9839742}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: Igor_Jogos_LeftHandPinky2
+      parentName: Igor_Jogos_LeftHandPinky1
+      position: {x: 0.000000014305114, y: 0.038733907, z: 0.0000000166893}
+      rotation: {x: -0.00000059604616, y: 0.000000029802308, z: -0.038035035, w: 0.9992764}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Igor_Jogos_LeftHandPinky3
+      parentName: Igor_Jogos_LeftHandPinky2
+      position: {x: -0.000000009536743, y: 0.019366983, z: 0.0000000047683715}
+      rotation: {x: -0.0000018132254, y: -0.00000009104124, z: -0.03803837, w: 0.99927634}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: Igor_Jogos_LPinky3End
+      parentName: Igor_Jogos_LeftHandPinky3
+      position: {x: 0.0000000047683715, y: 0.019741055, z: 0.000000007152557}
+      rotation: {x: 0.0000000055879354, y: -0.000000007450581, z: 0.0000000037252903, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_LPinky3End_end
+      parentName: Igor_Jogos_LPinky3End
+      position: {x: -0, y: 0.019741058, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_RightShoulder
+      parentName: Igor_Jogos_Spine1
+      position: {x: 0.040750973, y: 0.17782098, z: -0.004160426}
+      rotation: {x: 0.051527902, y: -0.0009591487, z: -0.7023487, w: 0.709965}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: Igor_Jogos_RightArm
+      parentName: Igor_Jogos_RightShoulder
+      position: {x: -0.00000004261732, y: 0.146581, z: -0.0000000011920929}
+      rotation: {x: -0.02196917, y: 0.33840254, z: -0.015429426, w: 0.94061846}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Igor_Jogos_RightForeArm
+      parentName: Igor_Jogos_RightArm
+      position: {x: 0.000000005699694, y: 0.29639494, z: 0.0000000051409006}
+      rotation: {x: 0.031692978, y: -0.0030860307, z: 0.0027696302, w: 0.99948907}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: Igor_Jogos_RightHand
+      parentName: Igor_Jogos_RightForeArm
+      position: {x: -0.000000014305114, y: 0.22517197, z: -0.0000000063329932}
+      rotation: {x: 0.18657736, y: -0.33236772, z: 0.036679562, w: 0.9237831}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: Igor_Jogos_RightHandThumb1
+      parentName: Igor_Jogos_RightHand
+      position: {x: 0.02876907, y: 0.025316738, z: 0.040276565}
+      rotation: {x: 0.35384592, y: 0.34502, z: 0.1558724, w: 0.8552532}
+      scale: {x: 0.99999994, y: 1, z: 0.9999999}
+    - name: Igor_Jogos_RightHandThumb2
+      parentName: Igor_Jogos_RightHandThumb1
+      position: {x: -0.000000009536743, y: 0.03217598, z: -0.000000010728836}
+      rotation: {x: -0.025469145, y: 0.013377423, z: -0.017697105, w: 0.9994295}
+      scale: {x: 0.9999998, y: 1, z: 0.99999994}
+    - name: Igor_Jogos_RightHandThumb3
+      parentName: Igor_Jogos_RightHandThumb2
+      position: {x: 0.0000000023841857, y: 0.027501134, z: -0.000000021457671}
+      rotation: {x: -0.0000000037252903, y: -0.000000011175871, z: -0.000000013038516, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_RThumb3End
+      parentName: Igor_Jogos_RightHandThumb3
+      position: {x: 0.000000011920928, y: 0.028032213, z: 0}
+      rotation: {x: -0.0000000037252903, y: -0.000000011175871, z: -0.000000013038516, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_RThumb3End_end
+      parentName: Igor_Jogos_RThumb3End
+      position: {x: -0, y: 0.028032226, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_RightHandIndex1
+      parentName: Igor_Jogos_RightHand
+      position: {x: -0.00000002324581, y: 0.103568085, z: 0.040276576}
+      rotation: {x: 0.04284739, y: 0.14240795, z: -0.06582324, w: 0.98668706}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: Igor_Jogos_RightHandIndex2
+      parentName: Igor_Jogos_RightHandIndex1
+      position: {x: 0.000000002980232, y: 0.048417352, z: 0.000000014305114}
+      rotation: {x: -0.0000005103648, y: -0.00000017881395, z: -0.034957767, w: 0.9993888}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: Igor_Jogos_RightHandIndex3
+      parentName: Igor_Jogos_RightHandIndex2
+      position: {x: 0.000000009536743, y: 0.024208808, z: -0.000000019073486}
+      rotation: {x: 0.00000015439547, y: -0.0000001259553, z: -0.034965478, w: 0.9993886}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+    - name: Igor_Jogos_RIndex3End
+      parentName: Igor_Jogos_RightHandIndex3
+      position: {x: 0.000000019073486, y: 0.024676217, z: 0}
+      rotation: {x: 0.0000000018626451, y: -0.000000011175871, z: -0.0000000055879354, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_RIndex3End_end
+      parentName: Igor_Jogos_RIndex3End
+      position: {x: -0, y: 0.024676284, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_RightHandMiddle1
+      parentName: Igor_Jogos_RightHand
+      position: {x: 0.00000003516674, y: 0.10356811, z: 0.013348846}
+      rotation: {x: 0.042378616, y: 0.066066146, z: -0.06942249, w: 0.99449486}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_RightHandMiddle2
+      parentName: Igor_Jogos_RightHandMiddle1
+      position: {x: -0.000000019073486, y: 0.053259127, z: -0.000000014305114}
+      rotation: {x: -0.00000038743005, y: 0.00000035762775, z: -0.03366345, w: 0.9994332}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1.0000001}
+    - name: Igor_Jogos_RightHandMiddle3
+      parentName: Igor_Jogos_RightHandMiddle2
+      position: {x: -0, y: 0.029050449, z: 0.0000000047683715}
+      rotation: {x: -0.00000077694256, y: -0.00000004273501, z: -0.033666402, w: 0.99943316}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: Igor_Jogos_RMiddle3End
+      parentName: Igor_Jogos_RightHandMiddle3
+      position: {x: 0.000000023841856, y: 0.02961135, z: -0.0000000047683715}
+      rotation: {x: -0.0000000055879346, y: -0.0000000037252899, z: -0.0000000037252894, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: Igor_Jogos_RMiddle3End_end
+      parentName: Igor_Jogos_RMiddle3End
+      position: {x: -0, y: 0.029611511, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_RightHandRing1
+      parentName: Igor_Jogos_RightHand
+      position: {x: 0.00000001847744, y: 0.09781474, z: -0.0133488225}
+      rotation: {x: 0.036407404, y: -0.08016411, z: -0.07623083, w: 0.99319535}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: Igor_Jogos_RightHandRing2
+      parentName: Igor_Jogos_RightHandRing1
+      position: {x: 0.000000009536743, y: 0.04841738, z: 0}
+      rotation: {x: -0.00000019744036, y: -0.00000023096797, z: -0.03301985, w: 0.99945474}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: Igor_Jogos_RightHandRing3
+      parentName: Igor_Jogos_RightHandRing2
+      position: {x: -0, y: 0.024208836, z: 0.000000010728836}
+      rotation: {x: -0.0000024322726, y: -0.000000059051516, z: -0.033015903, w: 0.9994548}
+      scale: {x: 1, y: 0.99999994, z: 1.0000001}
+    - name: Igor_Jogos_RRing3End
+      parentName: Igor_Jogos_RightHandRing3
+      position: {x: -0.0000000047683715, y: 0.024676204, z: 0.0000000166893}
+      rotation: {x: -0.0000000055297282, y: 0.000000013038516, z: 0.0000000069849206, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Igor_Jogos_RRing3End_end
+      parentName: Igor_Jogos_RRing3End
+      position: {x: -0, y: 0.024676284, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_RightHandPinky1
+      parentName: Igor_Jogos_RightHand
+      position: {x: -0.000000017881392, y: 0.09206086, z: -0.040276587}
+      rotation: {x: 0.03401046, y: -0.15121248, z: -0.07904577, w: 0.9847486}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_RightHandPinky2
+      parentName: Igor_Jogos_RightHandPinky1
+      position: {x: 0.0000000023841857, y: 0.038733903, z: -0.0000000080466265}
+      rotation: {x: -0.00000040605667, y: -0.00000007450581, z: -0.03236303, w: 0.9994762}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: Igor_Jogos_RightHandPinky3
+      parentName: Igor_Jogos_RightHandPinky2
+      position: {x: 0.000000011920928, y: 0.019366972, z: 0.0000000035762786}
+      rotation: {x: 0.00000044637798, y: 0.00000017665388, z: -0.03236649, w: 0.99947613}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: Igor_Jogos_RPinky3End
+      parentName: Igor_Jogos_RightHandPinky3
+      position: {x: -0.0000000047683715, y: 0.01974107, z: -0.000000008940696}
+      rotation: {x: -2.3283064e-10, y: 0.0000000059080776, z: 1.6056894e-26, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_RPinky3End_end
+      parentName: Igor_Jogos_RPinky3End
+      position: {x: -0, y: 0.019741058, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_LeftUpLeg
+      parentName: Idle 1
+      position: {x: -0.101931006, y: -0.000000016530972, z: -0.000000010710208}
+      rotation: {x: 0.9993183, y: -0.036777325, z: -0.0016364317, w: 0.0027771487}
+      scale: {x: 0.9999999, y: 0.99999964, z: 0.9999999}
+    - name: Igor_Jogos_LeftLeg
+      parentName: Igor_Jogos_LeftUpLeg
+      position: {x: -0.000000003267778, y: 0.41699797, z: -3.7252902e-11}
+      rotation: {x: 0.054679554, y: 0.000000028783102, z: 0.0000000010260809, w: 0.998504}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_LeftFoot
+      parentName: Igor_Jogos_LeftLeg
+      position: {x: -0.000000016875564, y: 0.43682712, z: 0.000000010505318}
+      rotation: {x: -0.7337938, y: 0.0961191, z: 0.078725554, w: 0.66791475}
+      scale: {x: 0.9999999, y: 1, z: 1}
+    - name: Igor_Jogos_LeftToeBase
+      parentName: Igor_Jogos_LeftFoot
+      position: {x: 0.000000035762785, y: 0.15289702, z: 0.06625542}
+      rotation: {x: -0.024176102, y: 2.3289867e-10, z: 0.000000020698879, w: 0.99970776}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_LToeEnd
+      parentName: Igor_Jogos_LeftToeBase
+      position: {x: 0.0000000023841857, y: 0.04077255, z: -0.000000017285346}
+      rotation: {x: 2.9916952e-26, y: 0.0000000013969839, z: -1.7462298e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_LToeEnd_end
+      parentName: Igor_Jogos_LToeEnd
+      position: {x: -0, y: 0.04077255, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_RightUpLeg
+      parentName: Idle 1
+      position: {x: 0.101931065, y: 0.00000001728767, z: 0.000000003259619}
+      rotation: {x: 0.9995322, y: 0.016127693, z: 0.010710788, w: 0.023674684}
+      scale: {x: 1, y: 0.99999976, z: 1}
+    - name: Igor_Jogos_RightLeg
+      parentName: Igor_Jogos_RightUpLeg
+      position: {x: -0.000000006780028, y: 0.41699797, z: -0.0000000011920929}
+      rotation: {x: 0.102673836, y: 0.000000029785113, z: -0.0000000022236433, w: 0.9947151}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Igor_Jogos_RightFoot
+      parentName: Igor_Jogos_RightLeg
+      position: {x: 7.45058e-10, y: 0.43682706, z: 0.0000000123679635}
+      rotation: {x: -0.76799846, y: -0.102375396, z: -0.13033982, w: 0.61863494}
+      scale: {x: 1.0000001, y: 1, z: 0.99999994}
+    - name: Igor_Jogos_RightToeBase
+      parentName: Igor_Jogos_RightFoot
+      position: {x: 0.000000030994414, y: 0.1528971, z: 0.06625544}
+      rotation: {x: -0.01310254, y: 0.0000000069855197, z: -0.000000020956556, w: 0.99991417}
+      scale: {x: 1.0000001, y: 0.99999994, z: 0.9999999}
+    - name: Igor_Jogos_RToeEnd
+      parentName: Igor_Jogos_RightToeBase
+      position: {x: 0.0000000047683715, y: 0.04077256, z: -0.000000022053719}
+      rotation: {x: -9.313227e-10, y: 0.0000000032596292, z: -0.00000000721775, w: 1}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: Igor_Jogos_RToeEnd_end
+      parentName: Igor_Jogos_RToeEnd
+      position: {x: -0, y: 0.04077255, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -95,9 +960,9 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
