@@ -20,6 +20,7 @@ public class Deck : MonoBehaviour
     public GameObject center;
     public GameObject selectedCard;
     public GameObject cardHud;
+    public GameObject actionHud;
     public List<GameObject> cardPlaces;
     public List<GameObject> attackAreas;
     public bool decided;
@@ -121,7 +122,7 @@ public class Deck : MonoBehaviour
             print(drawed.Count);
             GameObject a = Instantiate(i, cardPlaces[drawed.Count - 1].transform.position, cardPlaces[drawed.Count - 1].transform.rotation);
             a.GetComponent<SpriteRenderer>().sprite = i.GetComponent<SpriteRenderer>().sprite;
-            a.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+            a.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
             a.name = i.name;  
             a.transform.parent = deckObject.transform;
             hand.Add(a);
@@ -283,6 +284,7 @@ public class Deck : MonoBehaviour
             if (temp != null && temp.GetComponent<Cards>().mana <= jm.P1_MANA)
             {
                 selectedCard = g;
+                actionHud.gameObject.SetActive(false);
                 cardHud.gameObject.SetActive(true);
                 image.sprite = g.GetComponent<SpriteRenderer>().sprite;
                 image.gameObject.SetActive(true);
@@ -314,7 +316,7 @@ public class Deck : MonoBehaviour
             print(drawed.Count);
             GameObject a = Instantiate(g, cardPlaces[usedCard].transform.position, cardPlaces[usedCard].transform.rotation);
             a.name = g.name;
-            a.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+            a.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
             a.transform.parent = deckObject.transform;
             deck.Remove(g);
             hand.Add(a);
@@ -383,12 +385,14 @@ public class Deck : MonoBehaviour
         }
         StartCoroutine(useCard(selectedCard));
         cardHud.SetActive(false);
+        actionHud.SetActive(true);
         
     }
 
     public void Back()
     {
         cardHud.SetActive(false);
+        actionHud.SetActive(true);
         for (int i = 1; i <= 9; i++)
         {
             b.EnemyPositions[i].GetComponent<MeshRenderer>().enabled = false;
