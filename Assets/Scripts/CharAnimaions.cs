@@ -6,6 +6,29 @@ using UnityEngine;
 public class CharAnimaions : MonoBehaviour
 {
     private Animator anim;
+    private string lastAnimation = "Idle";
+
+    // Mapeia as teclas aos nomes das animações e índices
+    private Dictionary<KeyCode, (string, string, int)> keyToAnimation = new Dictionary<KeyCode, (string, string, int)>
+{
+    {KeyCode.Alpha0, ("StartPose", "StartPoseIndex", 3)},//Ice, Fire, Necro
+    {KeyCode.Alpha1, ("Buff", "BuffIndex", 2)},//Normal, Olhando p/ jogador
+    {KeyCode.Alpha2, ("Debuff", "DebuffIndex", 2)},//Normal, Olhando p/ jogador
+    {KeyCode.Alpha3, ("Idle", "", 0)},
+    {KeyCode.Alpha4, ("Dmg", "DmgIndex", 3)},// Fire, Ice, Necro
+    {KeyCode.Alpha5, ("Drink", "DrinkIndex", 3)},// Normal, Soberbo, Olhando p/ jogador
+    {KeyCode.Alpha6, ("Pedra", "PedraIndex", 2)},  
+    {KeyCode.Alpha7, ("Victory", "VictoryIndex", 5)}, // Fire, Ice, General, Mockery, Necro
+    {KeyCode.Alpha8, ("Tp", "TpIndex", 3)}, // Normal, Praise the sun, nao lembro
+    {KeyCode.Alpha9, ("Acertou", "AcertouIndex", 3)},//Normal, Olhando p/ jogador
+    {KeyCode.Q, ("Errou", "ErrouIndex", 3)},// Normal, batendo na cara, Olhando p/ jogador
+    {KeyCode.W, ("HNormal", "HNIndex", 4)}, // Deboche, Recuando, Olhando p/ jogador, Normal
+    {KeyCode.E, ("HitUlt", "HUIndex", 4)},// Normal, Deboche, Olhando p/ jogador, Taunt
+    {KeyCode.R, ("Fogo", "FogoIndex", 2)}, // Normal, Ult
+    {KeyCode.T, ("Gelo", "GeloIndex", 2)}, // Normal, Ult
+    {KeyCode.Y, ("Necro", "NecroIndex", 2)} // Normal, Ult
+};
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -13,96 +36,99 @@ public class CharAnimaions : MonoBehaviour
 
     private void Update()
     {
+        foreach (var kvp in keyToAnimation)
+        {
+            if (Input.GetKeyDown(kvp.Key))
+            {
+                string triggerName = kvp.Value.Item1;
+                string indexName = kvp.Value.Item2;
+                int maxIndex = kvp.Value.Item3;
 
+                if (!string.IsNullOrEmpty(indexName))
+                {
+                    int index = Random.Range(0, maxIndex);
+                    anim.SetInteger(indexName, index);
+                }
+
+                Debug.Log(triggerName);
+                PlayAnimation(triggerName);
+
+                lastAnimation = triggerName;
+            }
+        }
+
+    }
+
+    public void OnAcertou()
+    {
+        anim.SetBool("Acertou", true);
+    }
+
+    public void OnErrou()
+    {
+        anim.SetBool("Errou", true);
+    }
+
+    private void PlayAnimation(string triggerName)
+    {
+        anim.SetBool("Acertou", false);
+        anim.SetBool("Errou", false);
+
+        anim.SetTrigger(triggerName);
+        if (triggerName != "Idle")
+        {
+            PlayAnimation("Idle");
+        }
+    }
+    /*
+    private void Update()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            PlayAnimation("StartPose", "StartPoseIndex", Random.Range(0, 3)); //Ice, Fire, Necro
-        }
-        else if (Input.GetKeyDown(KeyCode.F))
-        {
-            PlayAnimation("Buff", "BuffIndex", Random.Range(0, 2)); //Normal, Olhando p/ jogador
+            Debug.Log("Idle");
+            EnqueueAnimation("Idle", "IdleIndex", Random.Range(0, 3));
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
             Debug.Log("Debuff");
-            PlayAnimation("Debuff", "DebuffIndex", Random.Range(0, 2)); //Normal, Olhando p/ jogador
+            EnqueueAnimation("Debuff", "DebuffIndex", Random.Range(0, 2));
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Debug.Log("Drink");
+            EnqueueAnimation("Drink", "DrinkIndex", Random.Range(0, 3));
+            EnqueueAnimation("Buff", "BuffIndex", Random.Range(0, 2));
         }
 
-    else if (Input.GetKeyDown(KeyCode.I))
-    {
-        Debug.Log("Idle");
-        PlayAnimation("Idle", "IdleIndex", Random.Range(0, 2)); //Normal, Olhando p/ jogador
-    }
-
-    else if (Input.GetKeyDown(KeyCode.Alpha1))
-    {
-        Debug.Log("Dmg");
-        PlayAnimation("Dmg", "DmgIndex", Random.Range(0, 3)); // Fire, Ice, Necro
-    }
-
-    else if (Input.GetKeyDown(KeyCode.Alpha2))
-    {
-        Debug.Log("Drink");
-        PlayAnimation("Drink", "DrinkIndex", Random.Range(0, 3)); // Normal, Soberbo, Olhando p/ jogador
-    }
-
-    else if (Input.GetKeyDown(KeyCode.P))
-    {
-        Debug.Log("Pedra");
-        PlayAnimation("Pedrao", "PedraIndex", Random.Range(0, 2)); 
-    }
-
-    else if (Input.GetKeyDown(KeyCode.V))
-    {
-        Debug.Log("Victory");
-        PlayAnimation("Victory", "VictoryIndex", Random.Range(0, 5)); // Fire, Ice, General, Mockery, Necro
-    }
-    else if (Input.GetKeyDown(KeyCode.T))
-    {
-        Debug.Log("Tp");
-        PlayAnimation("Tp", "TpIndex", Random.Range(0, 3)); // Normal, Praise the sun, nao lembro
-    }
-    else if (Input.GetKeyDown(KeyCode.A))
-    {
-        Debug.Log("Acertou");
-        PlayAnimation("Acertou", "AcertouIndex", Random.Range(0, 3)); // Normal, felicidade, Olhando p/ jogador
-    }
-    else if (Input.GetKeyDown(KeyCode.E))
-    {
-        Debug.Log("Errou");
-        PlayAnimation("Errou", "ErrouIndex", Random.Range(0, 3)); // Normal, batendo na cara, Olhando p/ jogador
-    }
-    else if (Input.GetKeyDown(KeyCode.Alpha3))
-    {
-        Debug.Log("HNormal");
-        PlayAnimation("HNormal", "HNIndex", Random.Range(0, 4)); // Deboche, Recuando, Olhando p/ jogador, Normal
-    }
-    else if (Input.GetKeyDown(KeyCode.Alpha4))
-    {
-        Debug.Log("HitUlt");
-        PlayAnimation("HitUlt", "HUIndex", Random.Range(0, 4)); // Normal, Deboche, Olhando p/ jogador, Taunt
-    }
-    else if (Input.GetKeyDown(KeyCode.F))
-    {
-        Debug.Log("Fogo");
-        PlayAnimation("Fogo", "FogoIndex", Random.Range(0, 2)); // Normal, Ult
-    }
-    else if (Input.GetKeyDown(KeyCode.G))
-    {
-        Debug.Log("Gelo");
-        PlayAnimation("Gelo", "GeloIndex", Random.Range(0, 2)); // Normal, Ult
-    }
-    else if (Input.GetKeyDown(KeyCode.N))
-    {
-        Debug.Log("Necro");
-        PlayAnimation("Necro", "NecroIndex", Random.Range(0, 2)); // Normal, Ult
+        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && animationQueue.Count > 0)
+        {
+            string nextAnimation = animationQueue.Dequeue();
+            PlayAnimation(nextAnimation);
         }
+    }
 
-
-}
-    private void PlayAnimation(string triggerName, string indexName, int index)
+    private void EnqueueAnimation(string triggerName, string indexName, int index)
     {
         anim.SetInteger(indexName, index);
+        animationQueue.Enqueue(triggerName);
+    }
+
+    private void PlayAnimation(string triggerName)
+    {
         anim.SetTrigger(triggerName);
     }
+
+    public void OnAnimationComplete()
+    {
+        Debug.Log("ta chamando");
+        if (animationQueue.Count == 0)
+        { 
+        FinishedAnimation("FinishAnimation", true);
+        }
+    }
+
+    private void FinishedAnimation(string boolName, bool value)
+    {
+        anim.SetBool(boolName, value);
+    }*/
 }
