@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -43,7 +44,24 @@ public class CharAnimaions : MonoBehaviour
     }
 
     private void Update()
-    {
+    {/*
+        if (Input.GetMouseButtonDown(0)) // Detecta um clique do mouse
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                GameObject selectedObject = hit.collider.gameObject;
+
+                if (sideStepPositions.Contains(selectedObject.transform))
+                {
+                    int selectedIndex = sideStepPositions.IndexOf(selectedObject.transform);
+                    PlayAnimation("SideStep", selectedIndex);
+                }
+            }
+        }*/
+
         foreach (var kvp in keyToAnimation)
         {
             if (Input.GetKeyDown(kvp.Key))
@@ -60,25 +78,12 @@ public class CharAnimaions : MonoBehaviour
 
                 Debug.Log(triggerName);
                 PlayAnimation(triggerName);
-
                 lastAnimation = triggerName;
-
             }
         }
-
     }
 
-    public void OnAcertou()
-    {
-        anim.SetBool("Acertou", true);
-    }
-
-    public void OnErrou()
-    {
-        anim.SetBool("Errou", true);
-    }
-
-    private void PlayAnimation(string triggerName)
+    private void PlayAnimation(string triggerName, int selectedIndex = -1)
     {
         anim.SetBool("Acertou", false);
         anim.SetBool("Errou", false);
@@ -93,29 +98,28 @@ public class CharAnimaions : MonoBehaviour
 
         if (triggerName == "SideStep")
         {
-            // Certifique-se de que o índice seja válido e está dentro dos limites da lista
-            if (sideStepIndex >= 0 && sideStepIndex < sideStepPositions.Count)
+            if (selectedIndex >= 0 && selectedIndex < sideStepPositions.Count)
             {
-                // Obtenha a posição da lista com base no índice
-                Vector3 targetPosition = sideStepPositions[sideStepIndex].position;
+                Vector3 targetPosition = sideStepPositions[selectedIndex].position;
+                Vector3 currentPosition = transform.position;
 
-                // Calcule a direção do movimento
-                Vector3 moveDirection = targetPosition - transform.position;
+                
+                Vector3 moveDirection = targetPosition - currentPosition;
 
-                // Normalize a direção e multiplique pela distância do passo
+                
                 moveDirection.Normalize();
                 moveDirection *= stepDistance;
 
-                // Mova o personagem para a posição desejada
-                transform.position += moveDirection;
+               
+                transform.position = currentPosition + moveDirection;
 
-                // Defina a rotação desejada
+                
                 float desiredRotation = angulo * Mathf.Deg2Rad;
                 transform.rotation = Quaternion.Euler(0, angulo, 0);
             }
         }
     }
-  }
+}
     /*
     private void Update()
     {
