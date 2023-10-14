@@ -7,7 +7,12 @@ public class CharAnimaions : MonoBehaviour
 {
     private Animator anim;
     private string lastAnimation = "Idle";
+
     public float angulo = 90.0f;
+
+    public List<Transform> sideStepPositions;
+    public int sideStepIndex;
+    public float stepDistance = 2.0f;
 
     // Mapeia as teclas aos nomes das animações e índices
     private Dictionary<KeyCode, (string, string, int)> keyToAnimation = new Dictionary<KeyCode, (string, string, int)>
@@ -18,7 +23,7 @@ public class CharAnimaions : MonoBehaviour
     {KeyCode.Alpha3, ("Idle", "", 0)},
     {KeyCode.Alpha4, ("Dmg", "DmgIndex", 3)},// Fire, Ice, Necro
     {KeyCode.Alpha5, ("Drink", "DrinkIndex", 3)},// Normal, Soberbo, Olhando p/ jogador
-    {KeyCode.Alpha6, ("Pedra", "PedraIndex", 2)},  
+    {KeyCode.Alpha6, ("Pedra", "PedraIndex", 2)},
     {KeyCode.Alpha7, ("Victory", "VictoryIndex", 5)}, // Fire, Ice, General, Mockery, Necro
     {KeyCode.Alpha8, ("Tp", "TpIndex", 3)}, // Normal, Praise the sun, nao lembro
     {KeyCode.Alpha9, ("Acertou", "AcertouIndex", 3)},//Normal, Olhando p/ jogador
@@ -85,7 +90,32 @@ public class CharAnimaions : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, angulo, 0);
         }
         lastAnimation = triggerName;
+
+        if (triggerName == "SideStep")
+        {
+            // Certifique-se de que o índice seja válido e está dentro dos limites da lista
+            if (sideStepIndex >= 0 && sideStepIndex < sideStepPositions.Count)
+            {
+                // Obtenha a posição da lista com base no índice
+                Vector3 targetPosition = sideStepPositions[sideStepIndex].position;
+
+                // Calcule a direção do movimento
+                Vector3 moveDirection = targetPosition - transform.position;
+
+                // Normalize a direção e multiplique pela distância do passo
+                moveDirection.Normalize();
+                moveDirection *= stepDistance;
+
+                // Mova o personagem para a posição desejada
+                transform.position += moveDirection;
+
+                // Defina a rotação desejada
+                float desiredRotation = angulo * Mathf.Deg2Rad;
+                transform.rotation = Quaternion.Euler(0, angulo, 0);
+            }
+        }
     }
+  }
     /*
     private void Update()
     {
@@ -137,4 +167,3 @@ public class CharAnimaions : MonoBehaviour
     {
         anim.SetBool(boolName, value);
     }*/
-}
