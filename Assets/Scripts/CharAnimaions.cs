@@ -7,6 +7,7 @@ public class CharAnimaions : MonoBehaviour
 {
     private Animator anim;
     private string lastAnimation = "Idle";
+    public float angulo = 90.0f;
 
     // Mapeia as teclas aos nomes das animações e índices
     private Dictionary<KeyCode, (string, string, int)> keyToAnimation = new Dictionary<KeyCode, (string, string, int)>
@@ -26,7 +27,9 @@ public class CharAnimaions : MonoBehaviour
     {KeyCode.E, ("HitUlt", "HUIndex", 4)},// Normal, Deboche, Olhando p/ jogador, Taunt
     {KeyCode.R, ("Fogo", "FogoIndex", 2)}, // Normal, Ult
     {KeyCode.T, ("Gelo", "GeloIndex", 2)}, // Normal, Ult
-    {KeyCode.Y, ("Necro", "NecroIndex", 2)} // Normal, Ult
+    {KeyCode.Y, ("Necro", "NecroIndex", 2)}, // Normal, Ult
+    {KeyCode.U, ("Shield", "ShieldIndex", 4)}, // Normal, Gelo, Fogo, Necro
+    {KeyCode.I, ("StepSide", "StepSideIndex", 8)} // StepBack, StepBack L, StepBack R, SideStep R->L, StepFront, StepFront L, StepFront R, SideStep L->R
 };
 
     private void Start()
@@ -54,6 +57,7 @@ public class CharAnimaions : MonoBehaviour
                 PlayAnimation(triggerName);
 
                 lastAnimation = triggerName;
+
             }
         }
 
@@ -77,8 +81,10 @@ public class CharAnimaions : MonoBehaviour
         anim.SetTrigger(triggerName);
         if (triggerName != "Idle")
         {
-            PlayAnimation("Idle");
+            float desiredRotation = angulo * Mathf.Deg2Rad;
+            transform.rotation = Quaternion.Euler(0, angulo, 0);
         }
+        lastAnimation = triggerName;
     }
     /*
     private void Update()
