@@ -35,7 +35,8 @@ public class CharAnimaions : MonoBehaviour
     {KeyCode.T, ("Gelo", "GeloIndex", 2)}, // Normal, Ult
     {KeyCode.Y, ("Necro", "NecroIndex", 2)}, // Normal, Ult
     {KeyCode.U, ("Shield", "ShieldIndex", 4)}, // Normal, Gelo, Fogo, Necro
-    {KeyCode.I, ("StepSide", "StepSideIndex", 8)} // StepBack, StepBack L, StepBack R, SideStep R->L, StepFront, StepFront L, StepFront R, SideStep L->R
+    {KeyCode.I, ("StepSide", "StepSideIndex", 8)}, // StepBack, StepBack L, StepBack R, SideStep R->L, StepFront, StepFront L, StepFront R, SideStep L->R
+    {KeyCode.O, ("Taunt", "TauntIndex", 4)}
 };
 
     private void Start()
