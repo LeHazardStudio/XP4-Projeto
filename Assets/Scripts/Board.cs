@@ -115,6 +115,7 @@ public class Board : MonoBehaviour
             d.draw = false;
             d.choosed = false;
             d.use = true;
+            jm.p1damage = 3;
             throwStone();
             yield return new WaitForSeconds(1f);
             enm.ChooseCard();

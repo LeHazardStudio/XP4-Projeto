@@ -34,6 +34,7 @@ public class Deck : MonoBehaviour
     public bool viewingCard;
     public bool teleport;
     public int usedCard;
+    public bool skip;
     public CameraControl cc;
     public JogoManagement jm;
     public Enemy enm;
@@ -379,6 +380,8 @@ public class Deck : MonoBehaviour
         use = true;
         jm.p1damage = 0;
         jm.p1cust = 0;
+        skip = true;
+        selectedCard = null;
         enm.ChooseCard();
         //jm.TurnFinished = true;
     }
