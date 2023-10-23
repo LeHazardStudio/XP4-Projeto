@@ -178,6 +178,7 @@ public class JogoManagement : MonoBehaviour
             dc.attackAreas[i].GetComponent<BoxCollider>().enabled = true;
             GameObject effect = Instantiate(dc.selectedCard.GetComponent<Cards>().effect, dc.attackAreas[i].transform.position, Quaternion.identity);
             effect.transform.position = new Vector3(effect.transform.position.x, dc.selectedCard.GetComponent<Cards>().particleY, effect.transform.position.z);
+            effect.transform.Rotate(dc.selectedCard.GetComponent<Cards>().rotation,0.0f,0.0f,Space.Self);
             effects.Add(effect);
      
         }

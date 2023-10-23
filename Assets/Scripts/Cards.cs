@@ -19,4 +19,5 @@ public class Cards : MonoBehaviour
     public bool isTeleport;
     public bool isMana;
     public GameObject effect;
+    public float rotation; 
 }
