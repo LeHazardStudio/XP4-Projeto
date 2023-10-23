@@ -10,6 +10,7 @@ public class Cards : MonoBehaviour
     public List<GameObject> attackAreaP2;
     public float attackBuff;
     public float defenseBuff;
+    public float particleY;
     public int abRounds;
     public int dbRounds;
     public bool isAttack;
@@ -17,4 +18,5 @@ public class Cards : MonoBehaviour
     public bool isDefenseBuff;
     public bool isTeleport;
     public bool isMana;
+    public GameObject effect;
 }

@@ -129,6 +129,7 @@ MonoBehaviour:
   - {fileID: 8621041239580306646, guid: 842efe780d574ef42987c656cdd1dc42, type: 3}
   attackBuff: 0
   defenseBuff: 0
+  particleY: 0
   abRounds: 0
   dbRounds: 0
   isAttack: 1
@@ -136,3 +137,4 @@ MonoBehaviour:
   isDefenseBuff: 0
   isTeleport: 0
   isMana: 0
+  effect: {fileID: 1165083550196348, guid: eb1a73ab1acea1642ab03a396619c5e0, type: 3}

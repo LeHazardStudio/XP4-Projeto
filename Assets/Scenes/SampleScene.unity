@@ -3171,7 +3171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoardPositions:
-  - {fileID: 0}
+  - {fileID: 1745126840}
   - {fileID: 9334227}
   - {fileID: 1027546676}
   - {fileID: 1601978872}
@@ -3182,7 +3182,7 @@ MonoBehaviour:
   - {fileID: 2018244481}
   - {fileID: 1129428290}
   EnemyPositions:
-  - {fileID: 0}
+  - {fileID: 1897741802}
   - {fileID: 747915359}
   - {fileID: 1358087568}
   - {fileID: 1852699313}
@@ -3801,7 +3801,7 @@ MonoBehaviour:
   deckObject: {fileID: 1394067352}
   center: {fileID: 1359638779}
   selectedCard: {fileID: 0}
-  enemy: {fileID: 0}
+  enemy: {fileID: 1897741802}
   nextPosition: {fileID: 0}
   boardCenter: {fileID: 2079391052}
   cardPlaces:
@@ -4775,12 +4775,13 @@ MonoBehaviour:
   enm: {fileID: 0}
   b: {fileID: 0}
   skipTurn: {fileID: 300835518}
-  player: {fileID: 0}
-  enemy: {fileID: 0}
+  player: {fileID: 1745126840}
+  enemy: {fileID: 1897741802}
   playerPosition: {fileID: 2006562000}
   enemyPosition: {fileID: 1393264163}
   lastBoardPlayer: {fileID: 1355953979}
   lastBoardEnemy: {fileID: 2079391052}
+  effects: []
 --- !u!4 &1878057301
 Transform:
   m_ObjectHideFlags: 0
@@ -5013,6 +5014,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1897741802 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2344619393188298424, guid: 28f4d4c17d260d14cad825576ba8d108, type: 3}
+  m_PrefabInstance: {fileID: 8128048550657084644}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1914727352
 GameObject:
   m_ObjectHideFlags: 0
@@ -5185,6 +5191,8 @@ MonoBehaviour:
   selectedCard: {fileID: 0}
   cardHud: {fileID: 1260543385}
   actionHud: {fileID: 1794141103}
+  player: {fileID: 1745126840}
+  cardEffect: {fileID: 0}
   cardPlaces:
   - {fileID: 1680351727}
   - {fileID: 1887699178}

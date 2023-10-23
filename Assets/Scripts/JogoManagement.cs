@@ -56,6 +56,7 @@ public class JogoManagement : MonoBehaviour
     public GameObject lastBoardPlayer;
     public GameObject lastBoardEnemy;
 
+    public List<GameObject> effects;
     void Start()
     {
         dc = FindObjectOfType<Deck>();
@@ -73,7 +74,7 @@ public class JogoManagement : MonoBehaviour
         P1Bufftext.text = "Attack: " + p1attackBuff + " / " + "Defense: " + p1defenseBuff;
         if (TurnStart)
         {
-        
+
             playerPosition.transform.position = lastBoardPlayer.transform.position;
             enemyPosition.transform.position = lastBoardEnemy.transform.position;
             
@@ -175,7 +176,13 @@ public class JogoManagement : MonoBehaviour
         {
             dc.attackAreas[i].GetComponent<MeshRenderer>().enabled = true;
             dc.attackAreas[i].GetComponent<BoxCollider>().enabled = true;
+            GameObject effect = Instantiate(dc.selectedCard.GetComponent<Cards>().effect, dc.attackAreas[i].transform.position, Quaternion.identity);
+            effect.transform.position = new Vector3(effect.transform.position.x, dc.selectedCard.GetComponent<Cards>().particleY, effect.transform.position.z);
+            effects.Add(effect);
+     
         }
+        yield return new WaitForSeconds(1.0f);
+        Destroy(dc.selectedCard);
         for (int i = 0; i < enm.attackAreas.Count; i++)
         {
             enm.attackAreas[i].GetComponent<MeshRenderer>().enabled = true;
@@ -203,6 +210,12 @@ public class JogoManagement : MonoBehaviour
         }
         dc.attackAreas.Clear();
         enm.attackAreas.Clear();
+        yield return new WaitForSeconds(0.5f);
+        foreach(GameObject g in effects)
+        {
+            Destroy(g);
+        }
+        
         
        
     }

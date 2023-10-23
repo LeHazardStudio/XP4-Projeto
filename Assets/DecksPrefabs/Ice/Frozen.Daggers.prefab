@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395356068065072649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10.459213}
+  m_LocalPosition: {x: 0, y: 0, z: -8.419212}
   m_LocalScale: {x: 0.25004962, y: 0.25004962, z: 0.25004962}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.559999, y: 27.64}
+  m_AnchoredPosition: {x: -15.879999, y: 27.76}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &5652841987835726351
@@ -138,6 +138,7 @@ MonoBehaviour:
   - {fileID: 3197870252751032786, guid: b5d79b3754f03b74192e7f46d6279c81, type: 3}
   attackBuff: 0
   defenseBuff: 0
+  particleY: 4.15
   abRounds: 0
   dbRounds: 0
   isAttack: 1
@@ -145,3 +146,4 @@ MonoBehaviour:
   isDefenseBuff: 0
   isTeleport: 0
   isMana: 0
+  effect: {fileID: 28800319694753658, guid: c9d380d8b6a21b742b8cda013410c90d, type: 3}

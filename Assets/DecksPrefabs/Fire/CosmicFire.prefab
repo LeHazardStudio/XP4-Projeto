@@ -117,6 +117,7 @@ MonoBehaviour:
   attackAreaP2: []
   attackBuff: 0.15
   defenseBuff: 0
+  particleY: 0
   abRounds: 3
   dbRounds: 0
   isAttack: 0
@@ -124,3 +125,4 @@ MonoBehaviour:
   isDefenseBuff: 0
   isTeleport: 0
   isMana: 0
+  effect: {fileID: 0}

@@ -21,6 +21,8 @@ public class Deck : MonoBehaviour
     public GameObject selectedCard;
     public GameObject cardHud;
     public GameObject actionHud;
+    public GameObject player;
+    public GameObject cardEffect;
     public List<GameObject> cardPlaces;
     public List<GameObject> attackAreas;
     public bool decided;
@@ -158,35 +160,39 @@ public class Deck : MonoBehaviour
 
                     GameObject demo = Instantiate(temp, center.transform.position, center.transform.rotation);
                     demo.transform.localScale = new Vector3(1, 1, 1);
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(1.5f);
                 if (!teleport)
                 {
                     if (demo.GetComponent<Cards>().isAttack)
                     {
                         jm.p1damage = demo.GetComponent<Cards>().damage;
                         print(demo.GetComponent<Cards>().attackAreaP1.Count + "contou");
+                        cardEffect = demo.GetComponent<Cards>().effect;
                         for (int i = 0; i < demo.GetComponent<Cards>().attackAreaP1.Count; i++)
                         {
+                           
                             print(demo.GetComponent<Cards>().attackAreaP1.Count + "contou");
                             GameObject area = b.EnemyPositions.Find(obj => obj.name == demo.GetComponent<Cards>().attackAreaP1[i].name);
                             if (b.EnemyPositions.Contains(area))
                             {
                                 print(demo.GetComponent<Cards>().attackAreaP1.Count + "contou dnv");
                                 //area.GetComponent<MeshRenderer>().enabled = true;
-                               // area.GetComponent<BoxCollider>().enabled = true;
+                                // area.GetComponent<BoxCollider>().enabled = true;
+                                
                                 attackAreas.Add(area);
-                               /* for (int number = 1; number <= 9; number++)
-                                {
-                                    if (b.EnemyPositions[number] != area)
-                                    {
-                                        if (!attackAreas.Contains(b.EnemyPositions[number]))
-                                        {
-                                            print("terminou");
-                                            b.EnemyPositions[number].GetComponent<MeshRenderer>().enabled = false;
-                                            b.EnemyPositions[number].GetComponent<BoxCollider>().enabled = false;
-                                        }
-                                    }
-                                }*/
+                                
+                                /* for (int number = 1; number <= 9; number++)
+                                 {
+                                     if (b.EnemyPositions[number] != area)
+                                     {
+                                         if (!attackAreas.Contains(b.EnemyPositions[number]))
+                                         {
+                                             print("terminou");
+                                             b.EnemyPositions[number].GetComponent<MeshRenderer>().enabled = false;
+                                             b.EnemyPositions[number].GetComponent<BoxCollider>().enabled = false;
+                                         }
+                                     }
+                                 }*/
 
 
 
@@ -243,7 +249,7 @@ public class Deck : MonoBehaviour
                     Destroy(demo);
                     hand.Remove(g);
                     drawed.Remove(temp);
-                    Destroy(g);
+                    //Destroy(g);
                     draw = false;
                     choosed = false;
                     use = true;
@@ -256,7 +262,7 @@ public class Deck : MonoBehaviour
                     Destroy(demo);
                     hand.Remove(g);
                     drawed.Remove(temp);
-                    Destroy(g);
+                    //Destroy(g);
                     draw = false;
                     choosed = false;
                     use = true;
