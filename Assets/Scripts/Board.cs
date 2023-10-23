@@ -67,6 +67,13 @@ public class Board : MonoBehaviour
         
         if (g.tag == "BoardPositions" && g.GetComponent<MeshRenderer>().enabled)
         {
+            if (d.teleport)
+            {
+                GameObject effect = Instantiate(d.selectedCard.GetComponent<Cards>().effect, player.transform.position, Quaternion.identity);
+                effect.transform.position = new Vector3(effect.transform.position.x + 2, d.selectedCard.GetComponent<Cards>().particleY, effect.transform.position.z);
+                effect.transform.Rotate(0.0f, d.selectedCard.GetComponent<Cards>().rotation, 0.0f, Space.Self);
+                jm.effects.Add(effect);
+            }
             jm.lastBoardPlayer = g;
             jm.walk = true;
             walk();

@@ -11,6 +11,7 @@ public class Cards : MonoBehaviour
     public float attackBuff;
     public float defenseBuff;
     public float particleY;
+    public float particleY2;
     public int abRounds;
     public int dbRounds;
     public bool isAttack;
@@ -18,6 +19,9 @@ public class Cards : MonoBehaviour
     public bool isDefenseBuff;
     public bool isTeleport;
     public bool isMana;
+    public bool isUltimate;
     public GameObject effect;
-    public float rotation; 
+    public GameObject effect2;
+    public float rotation;
+    public float rotation2;
 }

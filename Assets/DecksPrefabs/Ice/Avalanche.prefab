@@ -32,6 +32,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -98,18 +99,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083831395206982687}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6.4961967, y: 8.523157, z: 0.19999999}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: -0.024700984, y: 0.09743092, z: 0}
 --- !u!114 &3924412312115045457
 MonoBehaviour:
@@ -155,5 +148,6 @@ MonoBehaviour:
   isDefenseBuff: 0
   isTeleport: 0
   isMana: 0
+  isUltimate: 1
   effect: {fileID: 1657261246295108, guid: 848fa759b9145764d8a5a8fbf331237c, type: 3}
-  rotation: 0
+  rotation: -90

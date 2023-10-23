@@ -161,13 +161,14 @@ public class Deck : MonoBehaviour
                     GameObject demo = Instantiate(temp, center.transform.position, center.transform.rotation);
                     demo.transform.localScale = new Vector3(1, 1, 1);
                     yield return new WaitForSeconds(1.5f);
+                    cardEffect = demo.GetComponent<Cards>().effect;
                 if (!teleport)
                 {
                     if (demo.GetComponent<Cards>().isAttack)
                     {
                         jm.p1damage = demo.GetComponent<Cards>().damage;
                         print(demo.GetComponent<Cards>().attackAreaP1.Count + "contou");
-                        cardEffect = demo.GetComponent<Cards>().effect;
+                        
                         for (int i = 0; i < demo.GetComponent<Cards>().attackAreaP1.Count; i++)
                         {
                            

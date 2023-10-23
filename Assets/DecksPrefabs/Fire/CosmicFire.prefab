@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2318766692258467422}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.559999, y: 27.64, z: -10.459213}
+  m_LocalPosition: {x: -11.16, y: 27.52, z: -12.569212}
   m_LocalScale: {x: 0.25004962, y: 0.25004962, z: 0.25004962}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &768535877057854587
 SpriteRenderer:
@@ -94,18 +94,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2318766692258467422}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6.4961967, y: 8.523157, z: 0.19999999}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: -0.024700984, y: 0.09743092, z: 0}
 --- !u!114 &-4136143477372333374
 MonoBehaviour:
@@ -125,7 +117,7 @@ MonoBehaviour:
   attackAreaP2: []
   attackBuff: 0.15
   defenseBuff: 0
-  particleY: 0
+  particleY: 1.5
   abRounds: 3
   dbRounds: 0
   isAttack: 0
@@ -133,5 +125,6 @@ MonoBehaviour:
   isDefenseBuff: 0
   isTeleport: 0
   isMana: 0
-  effect: {fileID: 0}
-  rotation: 0
+  isUltimate: 0
+  effect: {fileID: 1975626619480782753, guid: 1740ecdffc6e3d74c953709b4e702b0f, type: 3}
+  rotation: -90
