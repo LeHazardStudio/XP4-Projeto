@@ -145,3 +145,4 @@ MonoBehaviour:
   rotation2: 0
   indexAnim: 1
   trigger: Shield
+  numero: 0

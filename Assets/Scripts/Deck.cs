@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Deck : MonoBehaviour
 {
     public List<GameObject> deckIce;
@@ -151,6 +152,7 @@ public class Deck : MonoBehaviour
 
     public IEnumerator useCard(GameObject g)
     {
+        int rnd = Random.Range(0, 4);
         print("ta funcionando");
         if (!use)
         {
@@ -160,6 +162,11 @@ public class Deck : MonoBehaviour
                {
                     player.GetComponent<Animator>().SetInteger("Index", temp.GetComponent<Cards>().indexAnim);
                     player.GetComponent<Animator>().SetTrigger(temp.GetComponent<Cards>().trigger);
+                    if (g.GetComponent<Cards>().numero == 1)
+                    {
+                        player.GetComponent<Animator>().SetInteger("Index", rnd);
+                    }
+
                     GameObject demo = Instantiate(temp, center.transform.position, center.transform.rotation);
                     demo.transform.localScale = new Vector3(1, 1, 1);
                     yield return new WaitForSeconds(1.5f);
