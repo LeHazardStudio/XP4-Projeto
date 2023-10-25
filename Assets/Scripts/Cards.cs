@@ -24,4 +24,6 @@ public class Cards : MonoBehaviour
     public GameObject effect2;
     public float rotation;
     public float rotation2;
+    public int indexAnim;
+    public string trigger;
 }

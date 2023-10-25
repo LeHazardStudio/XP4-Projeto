@@ -233,6 +233,8 @@ public class JogoManagement : MonoBehaviour
                 enm.attackAreas[i].GetComponent<MeshRenderer>().enabled = true;
                 enm.attackAreas[i].GetComponent<BoxCollider>().enabled = true;
             }
+            
+            player.GetComponent<Animator>().SetInteger("Index", 0);
 
             yield return new WaitForSeconds(0.5f);
         }

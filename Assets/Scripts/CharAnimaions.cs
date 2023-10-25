@@ -15,7 +15,7 @@ public class CharAnimaions : MonoBehaviour
     public int sideStepIndex;
     public float stepDistance = 2.0f;
 
-    // Mapeia as teclas aos nomes das animações e índices
+    // Mapeia as teclas aos nomes das animaÃ§Ãµes e Ã­ndices
     private Dictionary<KeyCode, (string, string, int)> keyToAnimation = new Dictionary<KeyCode, (string, string, int)>
 {
     {KeyCode.Alpha0, ("StartPose", "StartPoseIndex", 3)},//Ice, Fire, Necro

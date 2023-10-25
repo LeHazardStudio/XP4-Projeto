@@ -158,11 +158,13 @@ public class Deck : MonoBehaviour
                 GameObject temp = drawed.Find(obj => obj.name == g.name);
                if (temp != null && temp.GetComponent<Cards>().mana <= jm.P1_MANA)
                {
-
+                    player.GetComponent<Animator>().SetInteger("Index", temp.GetComponent<Cards>().indexAnim);
+                    player.GetComponent<Animator>().SetTrigger(temp.GetComponent<Cards>().trigger);
                     GameObject demo = Instantiate(temp, center.transform.position, center.transform.rotation);
                     demo.transform.localScale = new Vector3(1, 1, 1);
                     yield return new WaitForSeconds(1.5f);
                     cardEffect = demo.GetComponent<Cards>().effect;
+                    
                 if (!teleport)
                 {
                     if (demo.GetComponent<Cards>().isAttack)

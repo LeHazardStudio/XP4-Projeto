@@ -27,16 +27,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395356068065072649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.4292126}
+  m_LocalPosition: {x: 0, y: 0, z: -6.439213}
   m_LocalScale: {x: 0.25004962, y: 0.25004962, z: 0.25004962}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20.45, y: 27.98}
+  m_AnchoredPosition: {x: -18.16, y: 27.869999}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &5652841987835726351
@@ -99,9 +98,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395356068065072649}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: -0.024700984, y: 0.09743092, z: 0}
 --- !u!114 &-393616375992504544
@@ -119,12 +126,12 @@ MonoBehaviour:
   mana: 30
   damage: 15
   attackAreaP1:
-  - {fileID: 3341566164772357159, guid: 8bc53feece94f7041aefd60d82cc8034, type: 3}
   - {fileID: 9005322034182589429, guid: 50bcae58c5b56d74781c3046e1dd3219, type: 3}
-  - {fileID: 8310445633435083439, guid: 463509b0b9015e34086a7c3622a6f731, type: 3}
-  - {fileID: 4200265149072607775, guid: 31d4a8b6478f329439ecf517d0ede409, type: 3}
-  - {fileID: 6045696200685917915, guid: 1fa6b8aad5fc3ad42a5733b7b1f17ac4, type: 3}
+  - {fileID: 3196205847637969253, guid: b21958f837667fa4ba9cfe03721b1b3d, type: 3}
   - {fileID: 7902613910569072854, guid: d49f3afc96b0ac242919bc59de74c7d7, type: 3}
+  - {fileID: 4200265149072607775, guid: 31d4a8b6478f329439ecf517d0ede409, type: 3}
+  - {fileID: 8310445633435083439, guid: 463509b0b9015e34086a7c3622a6f731, type: 3}
+  - {fileID: 6045696200685917915, guid: 1fa6b8aad5fc3ad42a5733b7b1f17ac4, type: 3}
   - {fileID: 8089800498556563585, guid: 5246e25790da0fb42a5c3da87156fd59, type: 3}
   - {fileID: 4207662606120391577, guid: 94d86839643c35f48816f901870f3549, type: 3}
   attackAreaP2:
@@ -139,6 +146,7 @@ MonoBehaviour:
   attackBuff: 0
   defenseBuff: 0
   particleY: 4.15
+  particleY2: 0
   abRounds: 0
   dbRounds: 0
   isAttack: 1
@@ -148,4 +156,8 @@ MonoBehaviour:
   isMana: 0
   isUltimate: 0
   effect: {fileID: 28800319694753658, guid: c9d380d8b6a21b742b8cda013410c90d, type: 3}
+  effect2: {fileID: 0}
   rotation: 0
+  rotation2: 0
+  indexAnim: 1
+  trigger: Gelo
