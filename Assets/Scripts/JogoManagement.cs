@@ -226,7 +226,9 @@ public class JogoManagement : MonoBehaviour
                 effects.Add(effect);
             }
 
-            yield return new WaitForSeconds(1.0f);
+            //dc.selectedCard.GetComponent<AudioSource>().Play();
+
+            yield return new WaitForSeconds(3.0f);
             Destroy(dc.selectedCard);
             for (int i = 0; i < enm.attackAreas.Count; i++)
             {

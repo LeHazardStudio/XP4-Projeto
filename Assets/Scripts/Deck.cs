@@ -89,6 +89,16 @@ public class Deck : MonoBehaviour
         foreach(GameObject a in hand)
         {
             a.transform.position = cardPlaces[hand.IndexOf(a)].transform.position;
+
+            if (a != null && a.GetComponent<Cards>().mana > jm.P1_MANA){
+                a.transform.localScale = new Vector3 ( 0.45f, 0.45f, 0.45f );
+                //a.GetComponent<SpriteRenderer>().color = Color.black; 
+            }
+
+            else {
+                a.transform.localScale = new Vector3 ( 0.6f, 0.6f, 0.6f);
+
+            }
         }
         
     }
@@ -126,7 +136,7 @@ public class Deck : MonoBehaviour
             print(drawed.Count);
             GameObject a = Instantiate(i, cardPlaces[drawed.Count - 1].transform.position, cardPlaces[drawed.Count - 1].transform.rotation);
             a.GetComponent<SpriteRenderer>().sprite = i.GetComponent<SpriteRenderer>().sprite;
-            a.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+            a.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
             a.name = i.name;  
             a.transform.parent = deckObject.transform;
             hand.Add(a);
