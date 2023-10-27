@@ -41,6 +41,7 @@ public class JogoManagement : MonoBehaviour
     public bool playerCollision;
     public bool enemyCollision;
     public bool walk;
+    public bool rock;
 
     public Deck dc;
     public Enemy enm;
@@ -74,7 +75,7 @@ public class JogoManagement : MonoBehaviour
         P1Bufftext.text = "Attack: " + p1attackBuff + " / " + "Defense: " + p1defenseBuff;
         if (TurnStart)
         {
-
+            
             playerPosition.transform.position = lastBoardPlayer.transform.position;
             enemyPosition.transform.position = lastBoardEnemy.transform.position;
             
@@ -128,7 +129,6 @@ public class JogoManagement : MonoBehaviour
             P2_MANA = P2_MANA - p2cust;
             StartCoroutine(turnFinished());
             TurnFinished = false;
-            TurnStart = true;
 
         }
 
@@ -174,62 +174,78 @@ public class JogoManagement : MonoBehaviour
         enemy.transform.position = lastBoardEnemy.transform.position;
         if (!dc.skip)
         {
-            if (dc.selectedCard.GetComponent<Cards>().isAttack)
+            if (dc.selectedCard != null)
             {
-                if (!dc.selectedCard.GetComponent<Cards>().isUltimate)
+                if (dc.selectedCard.GetComponent<Cards>().isAttack)
                 {
-                    for (int i = 0; i < dc.attackAreas.Count; i++)
+                    if (!dc.selectedCard.GetComponent<Cards>().isUltimate)
                     {
-                        dc.attackAreas[i].GetComponent<MeshRenderer>().enabled = true;
-                        dc.attackAreas[i].GetComponent<BoxCollider>().enabled = true;
-                        GameObject effect = Instantiate(dc.selectedCard.GetComponent<Cards>().effect,
-                            dc.attackAreas[i].transform.position, Quaternion.identity);
-                        effect.transform.position = new Vector3(effect.transform.position.x,
-                            dc.selectedCard.GetComponent<Cards>().particleY, effect.transform.position.z);
-                        effect.transform.Rotate(dc.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
-                        effects.Add(effect);
+                        for (int i = 0; i < dc.attackAreas.Count; i++)
+                        {
+                            dc.attackAreas[i].GetComponent<MeshRenderer>().enabled = true;
+                            dc.attackAreas[i].GetComponent<BoxCollider>().enabled = true;
+                            GameObject effect = Instantiate(dc.selectedCard.GetComponent<Cards>().effect,
+                                dc.attackAreas[i].transform.position, Quaternion.identity);
+                            effect.transform.position = new Vector3(effect.transform.position.x,
+                                dc.selectedCard.GetComponent<Cards>().particleY, effect.transform.position.z);
+                            effect.transform.Rotate(dc.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
+                            effects.Add(effect);
 
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < dc.attackAreas.Count; i++)
+                        {
+                            dc.attackAreas[i].GetComponent<MeshRenderer>().enabled = true;
+                            dc.attackAreas[i].GetComponent<BoxCollider>().enabled = true;
+                            GameObject effect = Instantiate(dc.selectedCard.GetComponent<Cards>().effect,
+                                b.EnemyPositions[5].transform.position, Quaternion.identity);
+                            effect.transform.position = new Vector3(effect.transform.position.x,
+                                dc.selectedCard.GetComponent<Cards>().particleY, effect.transform.position.z);
+                            effect.transform.Rotate(dc.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
+                            effects.Add(effect);
+
+                        }
                     }
                 }
+                else if (dc.selectedCard.GetComponent<Cards>().isTeleport)
+                {
+                    GameObject effect = Instantiate(dc.selectedCard.GetComponent<Cards>().effect2,
+                        player.transform.position, Quaternion.identity);
+                    effect.transform.position = new Vector3(effect.transform.position.x,
+                        dc.selectedCard.GetComponent<Cards>().particleY2, effect.transform.position.z);
+                    effect.transform.Rotate(dc.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
+                    effects.Add(effect);
+                }
+          
                 else
                 {
-                    for (int i = 0; i < dc.attackAreas.Count; i++)
-                    {
-                        dc.attackAreas[i].GetComponent<MeshRenderer>().enabled = true;
-                        dc.attackAreas[i].GetComponent<BoxCollider>().enabled = true;
-                        GameObject effect = Instantiate(dc.selectedCard.GetComponent<Cards>().effect,
-                            b.EnemyPositions[5].transform.position, Quaternion.identity);
-                        effect.transform.position = new Vector3(effect.transform.position.x,
-                            dc.selectedCard.GetComponent<Cards>().particleY, effect.transform.position.z);
-                        effect.transform.Rotate(dc.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
-                        effects.Add(effect);
-
-                    }
+                    GameObject effect = Instantiate(dc.selectedCard.GetComponent<Cards>().effect, player.transform.position,
+                        Quaternion.identity);
+                    effect.transform.position = new Vector3(effect.transform.position.x,
+                        dc.selectedCard.GetComponent<Cards>().particleY, effect.transform.position.z);
+                    effect.transform.Rotate(dc.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
+                    effects.Add(effect);
                 }
-            }
-            else if (dc.selectedCard.GetComponent<Cards>().isTeleport)
-            {
-                GameObject effect = Instantiate(dc.selectedCard.GetComponent<Cards>().effect2,
-                    player.transform.position, Quaternion.identity);
-                effect.transform.position = new Vector3(effect.transform.position.x,
-                    dc.selectedCard.GetComponent<Cards>().particleY2, effect.transform.position.z);
-                effect.transform.Rotate(dc.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
-                effects.Add(effect);
-            }
-            else
-            {
-                GameObject effect = Instantiate(dc.selectedCard.GetComponent<Cards>().effect, player.transform.position,
-                    Quaternion.identity);
-                effect.transform.position = new Vector3(effect.transform.position.x,
-                    dc.selectedCard.GetComponent<Cards>().particleY, effect.transform.position.z);
-                effect.transform.Rotate(dc.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
-                effects.Add(effect);
-            }
 
-            dc.selectedCard.GetComponent<AudioSource>().Play();
+                dc.selectedCard.GetComponent<AudioSource>().Play();
 
-            yield return new WaitForSeconds(3.0f);
-            Destroy(dc.selectedCard);
+                yield return new WaitForSeconds(3.0f);
+                dc.hand.Remove(dc.selectedCard);
+                Destroy(dc.selectedCard);
+            }
+            else if (rock)
+            {
+                for (int i = 0; i < dc.attackAreas.Count; i++)
+                {
+                    dc.attackAreas[i].GetComponent<MeshRenderer>().enabled = true;
+                    dc.attackAreas[i].GetComponent<BoxCollider>().enabled = true;
+
+
+                }
+                rock = false;
+            }
             for (int i = 0; i < enm.attackAreas.Count; i++)
             {
                 enm.attackAreas[i].GetComponent<MeshRenderer>().enabled = true;
@@ -270,8 +286,8 @@ public class JogoManagement : MonoBehaviour
             Destroy(g);
         }
         effects.Clear();
-        
-       
+        TurnStart = true;
+
     }
 
     

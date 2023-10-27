@@ -110,14 +110,17 @@ public class Board : MonoBehaviour
     {
         if (g.tag == "EnemyPositions" && g.GetComponent<MeshRenderer>().enabled)
         {
-            d.attackAreas.Clear();
+ 
             d.attackAreas.Add(g);
             d.draw = false;
             d.choosed = false;
             d.use = true;
             jm.p1damage = 3;
+            jm.p1cust = 0;
+            jm.rock = true;
+            d.selectedCard = null;
             throwStone();
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.2f) ;
             enm.ChooseCard();
         }
     }

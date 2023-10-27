@@ -268,7 +268,7 @@ public class Deck : MonoBehaviour
                     }
                     jm.p1cust = demo.GetComponent<Cards>().mana;
                     Destroy(demo);
-                    hand.Remove(g);
+                    hand.Remove(selectedCard);
                     drawed.Remove(temp);
                     //Destroy(g);
                     draw = false;
