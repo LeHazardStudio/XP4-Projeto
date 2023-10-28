@@ -62,21 +62,39 @@ public class Board : MonoBehaviour
         }
     }
 
-    public void movePlayer(GameObject g)
+    public IEnumerator movePlayer(GameObject g)
     {
         
         if (g.tag == "BoardPositions" && g.GetComponent<MeshRenderer>().enabled)
         {
             if (d.teleport)
             {
+                jm.playerCollision = false;
+                GameObject temp = d.drawed.Find(obj => obj.name == d.selectedCard.name);
                 GameObject effect = Instantiate(d.selectedCard.GetComponent<Cards>().effect, player.transform.position, Quaternion.identity);
                 effect.transform.position = new Vector3(effect.transform.position.x + 2, d.selectedCard.GetComponent<Cards>().particleY, effect.transform.position.z);
                 effect.transform.Rotate(0.0f, d.selectedCard.GetComponent<Cards>().rotation, 0.0f, Space.Self);
-                jm.effects.Add(effect);
+                jm.p1cust = d.selectedCard.GetComponent<Cards>().mana;
+                d.hand.Remove(d.selectedCard);
+                d.drawed.Remove(temp);
+                //Destroy(g);
+                d.draw = false;
+                d.choosed = false;
+                d.use = true;
+                d.teleport = false;
+                jm.lastBoardPlayer = g;
+                jm.walk = true;
+                walk();
+                yield return new WaitForSeconds(1.0f);
+                Destroy(effect);
+                enm.ChooseCard();
             }
-            jm.lastBoardPlayer = g;
-            jm.walk = true;
-            walk();
+            else
+            {
+                jm.lastBoardPlayer = g;
+                jm.walk = true;
+                walk();
+            }
         }
 
         

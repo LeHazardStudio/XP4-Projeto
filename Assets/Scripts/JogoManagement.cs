@@ -169,6 +169,8 @@ public class JogoManagement : MonoBehaviour
 
     public IEnumerator turnFinished()
     {
+        enemyCollision = false;
+        playerCollision = false;
         walk = false;
         player.transform.position = lastBoardPlayer.transform.position;
         enemy.transform.position = lastBoardEnemy.transform.position;
@@ -241,8 +243,6 @@ public class JogoManagement : MonoBehaviour
                 {
                     dc.attackAreas[i].GetComponent<MeshRenderer>().enabled = true;
                     dc.attackAreas[i].GetComponent<BoxCollider>().enabled = true;
-
-
                 }
                 rock = false;
             }
@@ -263,10 +263,12 @@ public class JogoManagement : MonoBehaviour
         if (playerCollision)
         {
             P1_HP = (int)(P1_HP - (p2damage + (p2damage * p2attackBuff)) - (p2damage * p1defenseBuff));
+            playerCollision = false;
         }
         if (enemyCollision)
         {
             P2_HP = (int)(P2_HP - (p1damage + (p1damage * p1attackBuff)) - (p1damage * p2defenseBuff));
+            enemyCollision = false;
         }
         enemyCollision = false;
 

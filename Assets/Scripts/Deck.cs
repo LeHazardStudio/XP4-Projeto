@@ -259,6 +259,7 @@ public class Deck : MonoBehaviour
                         print("tp");
                         teleport = true;
                         selectedCard = g;
+                        print("tp: " + selectedCard.name);
                         yield break;
                     }
                     else
@@ -268,7 +269,7 @@ public class Deck : MonoBehaviour
                     }
                     jm.p1cust = demo.GetComponent<Cards>().mana;
                     Destroy(demo);
-                    hand.Remove(selectedCard);
+                 
                     drawed.Remove(temp);
                     //Destroy(g);
                     draw = false;
@@ -277,7 +278,7 @@ public class Deck : MonoBehaviour
                     yield return new WaitForSeconds(1f);
                     enm.ChooseCard();
                 }
-                else
+               /* else
                 {
                     jm.p1cust = demo.GetComponent<Cards>().mana;
                     Destroy(demo);
@@ -291,7 +292,7 @@ public class Deck : MonoBehaviour
                     teleport = false;
                     yield return new WaitForSeconds(1f);
                     enm.ChooseCard();
-                }
+                }*/
                 
                }
 
@@ -315,7 +316,7 @@ public class Deck : MonoBehaviour
                 cardHud.gameObject.SetActive(true);
                 image.sprite = g.GetComponent<SpriteRenderer>().sprite;
                 image.gameObject.SetActive(true);
-                for (int i = 1; i < 9; i++)
+                for (int i = 1; i < 10; i++)
                 {
                     b.EnemyPositions[i].GetComponent<MeshRenderer>().enabled = false;
                     b.EnemyPositions[i].GetComponent<BoxCollider>().enabled = false;

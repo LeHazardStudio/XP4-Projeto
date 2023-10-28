@@ -77,7 +77,7 @@ public class CameraControl : MonoBehaviour
             
             if (b.pressed)
             {
-                b.movePlayer(hit2.collider.gameObject);
+                StartCoroutine(b.movePlayer(hit2.collider.gameObject));
                 
             }
             if (b.pressedStone)
