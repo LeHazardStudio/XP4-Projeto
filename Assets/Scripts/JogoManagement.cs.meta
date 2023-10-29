@@ -3,7 +3,23 @@ guid: b7c471c0b584ac443b5a9389b1c50acd
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - P1HPtext: {instanceID: 0}
+  - P1MPtext: {instanceID: 0}
+  - P2HPtext: {instanceID: 0}
+  - P2MPtext: {instanceID: 0}
+  - P1Bufftext: {instanceID: 0}
+  - dc: {instanceID: 0}
+  - enm: {instanceID: 0}
+  - b: {instanceID: 0}
+  - skipTurn: {instanceID: 0}
+  - player: {instanceID: 0}
+  - enemy: {instanceID: 0}
+  - playerPosition: {instanceID: 0}
+  - enemyPosition: {instanceID: 0}
+  - lastBoardPlayer: {instanceID: 0}
+  - lastBoardEnemy: {instanceID: 0}
+  - shieldEffect: {fileID: 1657702766857390, guid: 89e35a83dcbef2349897d34e9e57e49a, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

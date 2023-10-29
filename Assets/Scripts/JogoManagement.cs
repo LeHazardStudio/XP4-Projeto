@@ -42,6 +42,7 @@ public class JogoManagement : MonoBehaviour
     public bool enemyCollision;
     public bool walk;
     public bool rock;
+    public bool shield;
 
     public Deck dc;
     public Enemy enm;
@@ -56,6 +57,8 @@ public class JogoManagement : MonoBehaviour
 
     public GameObject lastBoardPlayer;
     public GameObject lastBoardEnemy;
+
+    public GameObject shieldEffect;
 
     public List<GameObject> effects;
     void Start()
@@ -220,6 +223,7 @@ public class JogoManagement : MonoBehaviour
                     effect.transform.Rotate(dc.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
                     effects.Add(effect);
                 }
+                
           
                 else
                 {
@@ -245,7 +249,22 @@ public class JogoManagement : MonoBehaviour
                     dc.attackAreas[i].GetComponent<BoxCollider>().enabled = true;
                 }
                 rock = false;
+                yield return new WaitForSeconds(3f);
             }
+            else if (shield)
+            {
+                yield return new WaitForSeconds(1f);
+                GameObject effect = Instantiate(shieldEffect, player.transform.position,
+                        Quaternion.identity);
+                effect.transform.position = new Vector3(effect.transform.position.x,
+                    1.7f, effect.transform.position.z);
+                effect.transform.Rotate(0.0f, 0.0f, 0.0f, Space.Self);
+                effects.Add(effect);
+                player.GetComponent<AudioSource>().Play();
+                yield return new WaitForSeconds(3f);
+
+            }
+          
             for (int i = 0; i < enm.attackAreas.Count; i++)
             {
                 enm.attackAreas[i].GetComponent<MeshRenderer>().enabled = true;
@@ -262,6 +281,12 @@ public class JogoManagement : MonoBehaviour
         }
         if (playerCollision)
         {
+            if (shield)
+            {
+                p2damage = 0;
+                print("defesa" + p2damage);
+            }
+            
             P1_HP = (int)(P1_HP - (p2damage + (p2damage * p2attackBuff)) - (p2damage * p1defenseBuff));
             playerCollision = false;
         }
@@ -270,6 +295,8 @@ public class JogoManagement : MonoBehaviour
             P2_HP = (int)(P2_HP - (p1damage + (p1damage * p1attackBuff)) - (p1damage * p2defenseBuff));
             enemyCollision = false;
         }
+        shield = false;
+        b.pressedShield = false;
         enemyCollision = false;
 
         playerCollision = false;

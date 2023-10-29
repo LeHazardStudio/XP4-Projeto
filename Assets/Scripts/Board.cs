@@ -14,6 +14,7 @@ public class Board : MonoBehaviour
     public GameObject player;
     public bool pressed;
     public bool pressedStone;
+    public bool pressedShield;
     public Deck d;
     public JogoManagement jm;
     public Enemy enm;
@@ -126,21 +127,42 @@ public class Board : MonoBehaviour
 
     public IEnumerator useStone(GameObject g)
     {
-        if (g.tag == "EnemyPositions" && g.GetComponent<MeshRenderer>().enabled)
+        if (!pressedShield)
         {
- 
-            d.attackAreas.Add(g);
+            if (g.tag == "EnemyPositions" && g.GetComponent<MeshRenderer>().enabled)
+            {
+
+                d.attackAreas.Add(g);
+                d.draw = false;
+                d.choosed = false;
+                d.use = true;
+                jm.p1damage = 3;
+                jm.p1cust = 0;
+                jm.rock = true;
+                d.selectedCard = null;
+                pressedShield = true;
+                throwStone();
+                yield return new WaitForSeconds(0.2f);
+                enm.ChooseCard();
+            }
+        }
+    }
+
+
+    public void useShield()
+    {
             d.draw = false;
             d.choosed = false;
             d.use = true;
-            jm.p1damage = 3;
+            jm.p1damage = 0;
             jm.p1cust = 0;
-            jm.rock = true;
+            jm.shield = true;
+            player.GetComponent<Animator>().SetInteger("Index", 1);
+            player.GetComponent<Animator>().SetTrigger("Shield");
+            
             d.selectedCard = null;
-            throwStone();
-            yield return new WaitForSeconds(0.2f) ;
             enm.ChooseCard();
-        }
+
     }
 
     public void cardAction(GameObject g, GameObject card)

@@ -84,6 +84,7 @@ public class CameraControl : MonoBehaviour
             {
                 StartCoroutine(b.useStone(hit2.collider.gameObject));
             }
+           
             if (!d.choosed)
             {
                 d.SelectCard(hit2.collider.gameObject);
