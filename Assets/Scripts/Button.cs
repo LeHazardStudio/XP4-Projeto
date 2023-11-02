@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Button : MonoBehaviour
 {
-   public void Menu()
+   public void Menu() //Se o botão do menu for apertado, ele carrega a cena do jogo
     {
         SceneManager.LoadScene("SampleScene");
     }

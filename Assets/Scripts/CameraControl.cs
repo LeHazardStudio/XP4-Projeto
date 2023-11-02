@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class CameraControl : MonoBehaviour
 {
-    public GameObject mainCamera;
-    public GameObject card;
-    bool hitting;
+    public GameObject mainCamera; //A camera do jogo
+    public GameObject card; //A ultima carta clicada pelo player
+    bool hitting; //Esses dois nem são utilizados mas eu n tiro pq sei la vai que acontece algo
     bool viewingCards;
-    Deck d;
-    Board b;
+    Deck d; //O script de deck
+    Board b; //O script do tabuleiro
     void Start()
-    {
+    { //Puxa cada script da cena
         d = FindObjectOfType<Deck>();
         b = FindObjectOfType<Board>();
     }
@@ -39,22 +39,22 @@ public class CameraControl : MonoBehaviour
 
             }
         }*/
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //O raio criado pelo mouse do player
+        RaycastHit hit; //O hit do raio
         if(Physics.Raycast (ray, out hit, 1000))
         {
-            if(hit.collider.gameObject.tag == "Card" && hit.collider.gameObject != null)
+            if(hit.collider.gameObject.tag == "Card" && hit.collider.gameObject != null) //Verifica que se o player clicou numa carta, se sim:
             {
-                hitting = true;
-                card = hit.collider.gameObject;
+                hitting = true; //Define que ele clicou
+                card = hit.collider.gameObject; //Define a carta
             }
            
            
             
         }
-        else
+        else //Se não:
         {
-            hitting = false;
+            hitting = false; //Define que ele não clicou
         }
 
        /* if (hitting)
@@ -68,52 +68,52 @@ public class CameraControl : MonoBehaviour
        
     }
 
-    public void ClickToUse()
+    public void ClickToUse() //A função ativada quando o player clica com o botão esquerdo
     {
         Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit2;
-        if(Physics.Raycast (ray2, out hit2, 1000))
+        if(Physics.Raycast (ray2, out hit2, 1000)) //Vai registrar tudo que o player clicar
         {
             
-            if (b.pressed)
+            if (b.pressed) //Caso o botão de andar tenha sido apertado
             {
-                StartCoroutine(b.movePlayer(hit2.collider.gameObject));
+                StartCoroutine(b.movePlayer(hit2.collider.gameObject)); //Ativa a função de mover o player caso ele tenha clicado numa casa ativada do tabuleiro dele
                 
             }
-            if (b.pressedStone)
+            if (b.pressedStone) //Caso o botão de pedra tenha sido apertado
             {
-                StartCoroutine(b.useStone(hit2.collider.gameObject));
+                StartCoroutine(b.useStone(hit2.collider.gameObject)); //Ativa a função de usar a pedra caso ele tenha clicado numa casa ativada do inimigo
             }
            
-            if (!d.choosed)
+            if (!d.choosed) //Caso ele ainda não tenha escolhido uma carta
             {
-                d.SelectCard(hit2.collider.gameObject);
+                d.SelectCard(hit2.collider.gameObject); //Ativa a função de selecionar carta caso ele tenha clicado numa carta da mão dele
                 //* b.cardAction(hit2.collider.gameObject, d.selectedCard);
                 //StartCoroutine(d.useCard(hit2.collider.gameObject));
             }
-            if (d.teleport)
+            if (d.teleport) //Caso ele esteja teleportando
             {
-                b.pressed = true;
-                b.movePlayer(hit2.collider.gameObject);
-                d.useCard(d.selectedCard);
+                b.pressed = true; //Diz que ele apertou o botão de movimento
+                b.movePlayer(hit2.collider.gameObject); //Ativa a função de mover o player caso ele tenha clicado numa casa ativada do tabuleiro dele
+                d.useCard(d.selectedCard); //Ativa a função de usar a carta com a carta que foi selecionada
             }
         }
 
     }
 
 
-    public void ClickToView()
+    public void ClickToView() //A função ativada quando o player clica com o botão direito, acho que ela nem é usada mais
     {
         Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit2;
-        if(Physics.Raycast (ray2, out hit2, 1000))
+        if(Physics.Raycast (ray2, out hit2, 1000))  //Vai registrar tudo que o player clicar
         {
-            Debug.Log(hit2.collider.gameObject.name);
+            Debug.Log(hit2.collider.gameObject.name); //Debuga o objeto que foi clicado
             //d.ViewCard(hit2.collider.gameObject);
         }
-        else
+        else //Se ele não tiver clicado em nada
         {
-            d.image.gameObject.SetActive(false);
+            d.image.gameObject.SetActive(false); //Desativa o objeto da imagem grande da carta
         }
     }
 }
