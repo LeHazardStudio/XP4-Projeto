@@ -259,6 +259,10 @@ public class Deck : MonoBehaviour
                         print("tp");
                         teleport = true; //Diz que teleporte foi ativado
                         selectedCard = g; //Seta a carta selecionada
+                        GameObject effect = Instantiate(selectedCard.GetComponent<Cards>().effect, player.transform.position, Quaternion.identity); //Cria a particula do teleporte
+                        effect.transform.position = new Vector3(effect.transform.position.x + 2, selectedCard.GetComponent<Cards>().particleY, effect.transform.position.z); //Posiciona a particula
+                        effect.transform.Rotate(0.0f, selectedCard.GetComponent<Cards>().rotation, 0.0f, Space.Self);
+                        jm.effects.Add(effect);
                         print("tp: " + selectedCard.name);
                         yield break;
                     }
