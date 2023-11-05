@@ -24,6 +24,7 @@ public class Deck : MonoBehaviour
     public GameObject actionHud; //O hud de açoes (Walk, rock, etc.)
     public GameObject player; //O player
     public GameObject cardEffect; //O efeito de particula da carta selecionada
+    public GameObject manaFrasco;
     public List<GameObject> cardPlaces; //As posições das cartas na tela
     public List<GameObject> attackAreas; //As areas que serão atacadas no campo do oponente
     public bool decided; //Verifica se o player ja decidiu o deck
@@ -51,7 +52,7 @@ public class Deck : MonoBehaviour
         b = FindObjectOfType<Board>();
         image.gameObject.SetActive(false);
         cardHud.SetActive(false);
-        
+        manaFrasco.SetActive(false);
     }
 
     // Update is called once per frame
@@ -269,6 +270,7 @@ public class Deck : MonoBehaviour
                     else //Se for uma carta de mana:
                     {
                         jm.p1damage = 0; //Diz que dano é 0
+                        manaFrasco.SetActive(true);
                         print("mp");
                     }
                     jm.p1cust = demo.GetComponent<Cards>().mana; //Seta o custo do player como o da carta

@@ -81,6 +81,7 @@ public class JogoManagement : MonoBehaviour
             
             playerPosition.transform.position = lastBoardPlayer.transform.position;
             enemyPosition.transform.position = lastBoardEnemy.transform.position;
+            dc.manaFrasco.SetActive(false);
             
             P1_MANA = P1_MANA + 5;
             P2_MANA = P2_MANA + 5;

@@ -27,7 +27,7 @@ public class MusicPlayer : MonoBehaviour
             music.loop = true;
             music.Play();
         }
-        if (jm.P1_HP <= 0 || jm.P2_HP <= 0)
+        if (jm.P1_HP <= 20 || jm.P2_HP <= 20)
         {
             music.loop = false;
             if (music.isPlaying == false)
