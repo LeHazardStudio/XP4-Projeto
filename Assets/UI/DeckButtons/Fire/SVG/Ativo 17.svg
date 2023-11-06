@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 528.94 133">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 7px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #3b3939;
+      }
+
+      .cls-1, .cls-3 {
+        stroke: #ebd9b7;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-3 {
+        fill: #ebd9b7;
+        font-family: CroissantOne-Regular, 'Croissant One';
+        font-size: 100px;
+      }
+    </style>
+  </defs>
+  <g id="Camada_10" data-name="Camada 10">
+    <g>
+      <path class="cls-2" d="m492.84,0H36.1L0,62.53l36.1,62.53h456.74l36.1-62.53L492.84,0Zm-19.13,111.87H55.23L22.15,61.6,55.23,11.33h418.48l33.08,50.27-33.08,50.27Z"/>
+      <polygon class="cls-1" points="473.71 11.33 431.84 11.33 407.55 11.33 121.39 11.33 88.31 11.33 55.23 11.33 22.15 61.6 55.23 111.87 88.31 111.87 121.39 111.87 407.55 111.87 431.84 111.87 473.71 111.87 506.79 61.6 473.71 11.33"/>
+    </g>
+    <text class="cls-3" transform="translate(156.36 98.1)"><tspan x="0" y="0">Fire</tspan></text>
+  </g>
+</svg>

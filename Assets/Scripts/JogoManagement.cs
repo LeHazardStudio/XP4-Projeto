@@ -218,7 +218,7 @@ public class JogoManagement : MonoBehaviour
             else if (enm.selectedCard.GetComponent<Cards>().isTeleport)
             {
                 GameObject effect2 = Instantiate(enm.selectedCard.GetComponent<Cards>().effect2,
-                    player.transform.position, Quaternion.identity);
+                    enemy.transform.position, Quaternion.identity);
                 effect2.transform.position = new Vector3(effect2.transform.position.x,
                     enm.selectedCard.GetComponent<Cards>().particleY2, effect2.transform.position.z);
                 effect2.transform.Rotate(- dc.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
@@ -230,7 +230,7 @@ public class JogoManagement : MonoBehaviour
             else
             {
                 GameObject effect2 = Instantiate(enm.selectedCard.GetComponent<Cards>().effect,
-                    player.transform.position, Quaternion.identity);
+                    enemy.transform.position, Quaternion.identity);
                 effect2.transform.position = new Vector3(effect2.transform.position.x,
                     enm.selectedCard.GetComponent<Cards>().particleY, effect2.transform.position.z);
                 effect2.transform.Rotate(-dc.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);

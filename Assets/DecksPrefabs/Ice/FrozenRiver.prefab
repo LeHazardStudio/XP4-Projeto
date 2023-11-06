@@ -144,7 +144,7 @@ MonoBehaviour:
   - {fileID: 3197870252751032786, guid: b5d79b3754f03b74192e7f46d6279c81, type: 3}
   attackBuff: 0
   defenseBuff: 0
-  particleY: 1.3
+  particleY: 2.8
   particleY2: 0
   abRounds: 0
   dbRounds: 0
@@ -154,9 +154,9 @@ MonoBehaviour:
   isTeleport: 0
   isMana: 0
   isUltimate: 0
-  effect: {fileID: 8718834236907886967, guid: 54520612a98a86f4b8050756b9c232df, type: 3}
+  effect: {fileID: 1419431584107462, guid: a31ebf8641827a849ac3c2c3ac4276ac, type: 3}
   effect2: {fileID: 0}
-  rotation: 0
+  rotation: -90
   rotation2: 0
   indexAnim: 1
   trigger: Gelo

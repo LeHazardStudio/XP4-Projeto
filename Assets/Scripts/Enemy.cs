@@ -138,6 +138,7 @@ public class Enemy : MonoBehaviour
         if (!use)
         {
 
+            selectedCard = g;
             GameObject temp = drawed.Find(obj => obj.name == g.name);
             if (temp != null && temp.GetComponent<Cards>().mana <= jm.P2_MANA)
             {
