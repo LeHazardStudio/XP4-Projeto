@@ -334,4 +334,11 @@ AnimationClip:
     flags: 0
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: activateShader
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: a8b08660ed511684e98cebe751204131, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
