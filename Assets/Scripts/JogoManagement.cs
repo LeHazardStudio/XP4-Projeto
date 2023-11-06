@@ -178,7 +178,66 @@ public class JogoManagement : MonoBehaviour
         walk = false;
         player.transform.position = lastBoardPlayer.transform.position;
         enemy.transform.position = lastBoardEnemy.transform.position;
-        if (!dc.skip)
+        if (enm.selectedCard != null)
+        {
+            if (enm.selectedCard.GetComponent<Cards>().isAttack)
+            {
+                if (!enm.selectedCard.GetComponent<Cards>().isUltimate)
+                {
+                    for (int i = 0; i < enm.attackAreas.Count; i++)
+                    {
+                        enm.attackAreas[i].GetComponent<MeshRenderer>().enabled = true;
+                        enm.attackAreas[i].GetComponent<BoxCollider>().enabled = true;
+                        GameObject effect2 = Instantiate(enm.selectedCard.GetComponent<Cards>().effect,
+                            enm.attackAreas[i].transform.position, Quaternion.identity);
+                        effect2.transform.position = new Vector3(effect2.transform.position.x,
+                            enm.selectedCard.GetComponent<Cards>().particleY, effect2.transform.position.z);
+                        effect2.transform.Rotate(- enm.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
+                        effects.Add(effect2);
+
+
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < enm.attackAreas.Count; i++)
+                    {
+                        enm.attackAreas[i].GetComponent<MeshRenderer>().enabled = true;
+                        enm.attackAreas[i].GetComponent<BoxCollider>().enabled = true;
+                        GameObject effect2 = Instantiate(enm.selectedCard.GetComponent<Cards>().effect,
+                            enm.attackAreas[i].transform.position, Quaternion.identity);
+                        effect2.transform.position = new Vector3(effect2.transform.position.x,
+                            enm.selectedCard.GetComponent<Cards>().particleY, effect2.transform.position.z);
+                        effect2.transform.Rotate(-enm.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
+                        effects.Add(effect2);
+
+
+                    }
+                }
+            }
+            else if (enm.selectedCard.GetComponent<Cards>().isTeleport)
+            {
+                GameObject effect2 = Instantiate(enm.selectedCard.GetComponent<Cards>().effect2,
+                    player.transform.position, Quaternion.identity);
+                effect2.transform.position = new Vector3(effect2.transform.position.x,
+                    enm.selectedCard.GetComponent<Cards>().particleY2, effect2.transform.position.z);
+                effect2.transform.Rotate(- dc.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
+                effects.Add(effect2);
+
+            }
+
+
+            else
+            {
+                GameObject effect2 = Instantiate(enm.selectedCard.GetComponent<Cards>().effect,
+                    player.transform.position, Quaternion.identity);
+                effect2.transform.position = new Vector3(effect2.transform.position.x,
+                    enm.selectedCard.GetComponent<Cards>().particleY, effect2.transform.position.z);
+                effect2.transform.Rotate(-dc.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
+                effects.Add(effect2);
+            }
+        }
+            if (!dc.skip)
         {
             if (dc.selectedCard != null)
             {
@@ -196,6 +255,7 @@ public class JogoManagement : MonoBehaviour
                                 dc.selectedCard.GetComponent<Cards>().particleY, effect.transform.position.z);
                             effect.transform.Rotate(dc.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
                             effects.Add(effect);
+                            
 
                         }
                     }
@@ -211,6 +271,7 @@ public class JogoManagement : MonoBehaviour
                                 dc.selectedCard.GetComponent<Cards>().particleY, effect.transform.position.z);
                             effect.transform.Rotate(dc.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
                             effects.Add(effect);
+                            
 
                         }
                     }
@@ -223,6 +284,7 @@ public class JogoManagement : MonoBehaviour
                         dc.selectedCard.GetComponent<Cards>().particleY2, effect.transform.position.z);
                     effect.transform.Rotate(dc.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
                     effects.Add(effect);
+
                 }
                 
           
