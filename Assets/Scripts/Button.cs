@@ -5,29 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class Button : MonoBehaviour
 {
-   public void Menu() //Se o botão do menu for apertado, ele carrega a cena do jogo
+   public void Menu() //Se o botï¿½o do menu for apertado, ele carrega a cena do jogo
     {
         SceneManager.LoadScene("Game");
     }
 
-    public void Exit() //Se o botão do exit for apertado, ele fecha o jogo
+    public void Exit() //Se o botï¿½o do exit for apertado, ele fecha o jogo
     {
         Application.Quit();
     }
 
-    public void Credits() //Se o botão do credits for apertado, ele carrega a cena do credits
+    public void Credits() //Se o botï¿½o do credits for apertado, ele carrega a cena do credits
     {
         SceneManager.LoadScene("Credits");
     }
 
-    public void Play() //Se o botão do play/playagain for apertado, ele carrega a cena do jogo
+    public void Play() //Se o botï¿½o do play/playagain for apertado, ele carrega a cena do jogo
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("DeckSelection");
     }
 
-    public void ExitToMenu() //Se o botão do exittomenu for apertado, ele carrega a cena do menu
+    public void ExitToMenu() //Se o botï¿½o do exittomenu for apertado, ele carrega a cena do menu
     {
         SceneManager.LoadScene("Menu");
+    }
+    
+    public void Tutorial() //Se o botï¿½o do exittomenu for apertado, ele carrega a cena do menu
+    {
+        SceneManager.LoadScene("Tutorial");
     }
 
 }

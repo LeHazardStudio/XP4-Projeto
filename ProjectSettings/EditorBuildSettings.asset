@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Perdeu.unity
     guid: 09e2796aa4c6fe842a7d3724ef2b7dc6
+  - enabled: 1
+    path: Assets/Scenes/DeckSelection.unity
+    guid: e749ad638e156634688bdb5d5d24c4b9
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 1c4d06cf212742546b68723de071c1b6
   m_configObjects: {}
