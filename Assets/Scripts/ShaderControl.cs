@@ -8,7 +8,7 @@ public class ShaderControl : MonoBehaviour
     public GameObject cardView;
     void Start()
     {
-        
+        cardView.GetComponent<Image>().material.SetFloat("_Forca", 0);
     }
 
     // Update is called once per frame
@@ -23,7 +23,12 @@ public class ShaderControl : MonoBehaviour
         {
             cardView.GetComponent<Image>().material.SetFloat("_Forca", i);
         }
+        
     }
 
-  
+   private void twirl()
+    {
+        cardView.GetComponent<Animator>().SetInteger("AnimInd", 0);
+        cardView.GetComponent<Image>().material.SetFloat("_Forca", 0);
+    }
 }

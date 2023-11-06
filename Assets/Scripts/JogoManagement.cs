@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 //using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class JogoManagement : MonoBehaviour
 {
@@ -78,7 +79,8 @@ public class JogoManagement : MonoBehaviour
         P1Bufftext.text = "Attack: " + p1attackBuff + " / " + "Defense: " + p1defenseBuff;
         if (TurnStart)
         {
-            
+            dc.cardView.GetComponent<Animator>().SetInteger("AnimInd", 0);
+            dc.cardView.GetComponent<Image>().material.SetFloat("_Forca", 0);
             playerPosition.transform.position = lastBoardPlayer.transform.position;
             enemyPosition.transform.position = lastBoardEnemy.transform.position;
             dc.manaFrasco.SetActive(false);

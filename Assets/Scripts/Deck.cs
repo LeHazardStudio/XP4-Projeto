@@ -465,7 +465,7 @@ public class Deck : MonoBehaviour
     }
 
     public IEnumerator deleteHud(){
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1.5f);
         cardHud.SetActive(false); //Desativa o hud da carta
         actionHud.SetActive(true); //Ativa o hud de a��es
         StartCoroutine(useCard(selectedCard)); //Ativa a fun��o de usar a carta
