@@ -23,10 +23,10 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 3.14
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: efd1c33efd2d58340b88804268e6833f, type: 2}
+  m_SubtractiveShadowColor: {r: 0.48406905, g: 0.6087272, b: 0.9245283, a: 1}
+  m_SkyboxMaterial: {fileID: 2100000, guid: f531e09e2ad2fb440b4eed7605863143, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.34162807, g: 0.42921633, b: 0.5285348, a: 1}
+  m_IndirectSpecularColor: {r: 0.0007787092, g: 0.0041236565, b: 0.019990839, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1542,7 +1542,7 @@ GameObject:
   - component: {fileID: 213262696}
   - component: {fileID: 213262695}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Clouds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1630,7 +1630,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.3858255, z: 0, w: 0.9225718}
   m_LocalPosition: {x: 19.6, y: -13.2, z: 12.42}
-  m_LocalScale: {x: 7.3, y: 7.3, z: 7.3}
+  m_LocalScale: {x: 9.95, y: 9.95, z: 9.95}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -3148,13 +3148,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3819173, y: -0.23772874, z: 0.102334425, w: 0.88721585}
-  m_LocalPosition: {x: 5.8199997, y: 7.11, z: 4.0386143}
+  m_LocalRotation: {x: 0.37254897, y: -0.14241435, z: 0.057973284, w: 0.9151856}
+  m_LocalPosition: {x: 6.37, y: 8.9, z: 3.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 46.581, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 44.3, y: -17.69, z: 0}
 --- !u!114 &705507996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3498,7 +3498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: c0d68a2a2e349e843b0c3341e0629ad4, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -3534,7 +3534,7 @@ Animator:
   m_GameObject: {fileID: 840676403}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b4a84182f268a1f469823e41481cbfc6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 69b706fa32bb5fe488b8b35498bf687b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7485,6 +7485,7 @@ MonoBehaviour:
   enm: {fileID: 0}
   image: {fileID: 840676405}
   b: {fileID: 0}
+  CardView: {fileID: 840676403}
 --- !u!4 &1959335920
 Transform:
   m_ObjectHideFlags: 0

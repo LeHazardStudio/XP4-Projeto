@@ -42,6 +42,7 @@ public class Deck : MonoBehaviour
     public Enemy enm; //O script do inimigo
     public Image image; //A imagem grande da carta
     public Board b; //O script do tabuleiro
+    public GameObject CardView;
     
 
     void Start()
@@ -443,7 +444,7 @@ public class Deck : MonoBehaviour
             b.EnemyPositions[i].GetComponent<BoxCollider>().enabled = false;
         }
         
-        image.GetComponent<Animator>().SetInteger("index",1);
+        CardView.GetComponent<Animator>().SetInteger("index",1);
         //Debug.Log("O valor de index é" + image.GetComponent<Animator>().GetParameter());
         StartCoroutine(deleteHud());
 
