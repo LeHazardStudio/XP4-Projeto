@@ -56,22 +56,22 @@ public class Deck : MonoBehaviour
         
         Debug.Log("oi eu sou o deckN e meu valor é: " + ButtonManager.deckN);
         
-        if (ButtonManager.deckN == 1) ;
-        {
-            enm.ChooseDeck();
-            StartCoroutine(deckDefine(deckFire));
-        }
+        
 
-        if (ButtonManager.deckN == 2) ;
+        switch (ButtonManager.deckN)
         {
-            enm.ChooseDeck();
-            StartCoroutine(deckDefine(deckIce));
-        }
-
-        if (ButtonManager.deckN == 3)
-        {
-            enm.ChooseDeck();
-            StartCoroutine(deckDefine(deckDark));
+            case 1:
+                enm.ChooseDeck();
+                StartCoroutine(deckDefine(deckFire));
+                break;
+            case 2:
+                enm.ChooseDeck();
+                StartCoroutine(deckDefine(deckIce));
+                break;
+            case 3:
+                enm.ChooseDeck();
+                StartCoroutine(deckDefine(deckDark));
+                break;
         }
 
         
@@ -131,7 +131,7 @@ public class Deck : MonoBehaviour
     IEnumerator deckDefine(List<GameObject> deckBase) //Fun��o que embaralha o deck selecionado e entrega a primeira m�o
     {
         decided = true; //Diz que o player escolheu o deck
-        deckSelectButton.SetActive(false);  //Desativa os bot�es de sele��o de deck
+        //deckSelectButton.SetActive(false);  //Desativa os bot�es de sele��o de deck
         gameHud.SetActive(true); //Ativa o hud do jogo
         while (!deckFull) //Enquanto o deck embaralhado n�o estiver cheio ele pega uma carta aleatoria do deck original e joga pro embaralhado 
         {

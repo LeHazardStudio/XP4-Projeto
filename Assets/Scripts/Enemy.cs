@@ -82,7 +82,7 @@ public class Enemy : MonoBehaviour
     }
 
 
-    IEnumerator deckDefine(List<GameObject> deckBase)
+    IEnumerator deckDefineEn(List<GameObject> deckBase)
     {
         decided = true;
         
@@ -289,7 +289,7 @@ public class Enemy : MonoBehaviour
     {
         if (!decided)
         {
-            StartCoroutine(deckDefine(deckFire));
+            StartCoroutine(deckDefineEn(deckFire));
         }
     }
 
@@ -297,7 +297,7 @@ public class Enemy : MonoBehaviour
     {
         if (!decided)
         {
-            StartCoroutine(deckDefine(deckIce));
+            StartCoroutine(deckDefineEn(deckIce));
         }
     }
 
@@ -305,7 +305,7 @@ public class Enemy : MonoBehaviour
     {
         if (!decided)
         {
-            StartCoroutine(deckDefine(deckDark));
+            StartCoroutine(deckDefineEn(deckDark));
         }
     }
 
