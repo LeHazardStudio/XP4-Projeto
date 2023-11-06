@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 787070029}
   - component: {fileID: 787070028}
   m_Layer: 5
-  m_Name: Fire
+  m_Name: Ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -950,7 +950,7 @@ GameObject:
   - component: {fileID: 866620128}
   - component: {fileID: 866620127}
   m_Layer: 5
-  m_Name: Ice
+  m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1058,6 +1058,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866620125}
   m_CullTransparentMesh: 1
+--- !u!1 &888430406 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2344619393188298424, guid: 42430aebe573ba94ba5c9e4e7eaca371, type: 3}
+  m_PrefabInstance: {fileID: 1074500327}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1074500327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1114,7 +1119,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2729227390655893658, guid: 42430aebe573ba94ba5c9e4e7eaca371, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1638,7 +1644,7 @@ GameObject:
   - component: {fileID: 1826448966}
   - component: {fileID: 1826448967}
   m_Layer: 5
-  m_Name: ButtonMenanger
+  m_Name: ButtonMananger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1656,9 +1662,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 787070027}
   - {fileID: 866620126}
   - {fileID: 2109414735}
+  - {fileID: 787070027}
   m_Father: {fileID: 481581711}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1675,12 +1681,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1826448965}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96307d4367f397d40aa93f0d47605e54, type: 3}
+  m_Script: {fileID: 11500000, guid: a88fcfd009a78d142b8c6314f088e63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire: {fileID: 787070028}
-  ice: {fileID: 866620127}
-  darkMagic: {fileID: 2109414736}
+  boneco: {fileID: 888430406}
+  fireBtn: {fileID: 866620127}
+  iceBtn: {fileID: 787070028}
+  darkBtn: {fileID: 2109414736}
 --- !u!1 &2109414734
 GameObject:
   m_ObjectHideFlags: 0
