@@ -7485,7 +7485,7 @@ MonoBehaviour:
   enm: {fileID: 0}
   image: {fileID: 840676405}
   b: {fileID: 0}
-  CardView: {fileID: 840676403}
+  cardView: {fileID: 840676407}
 --- !u!4 &1959335920
 Transform:
   m_ObjectHideFlags: 0
