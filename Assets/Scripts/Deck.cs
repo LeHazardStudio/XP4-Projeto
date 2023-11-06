@@ -442,9 +442,13 @@ public class Deck : MonoBehaviour
             b.EnemyPositions[i].GetComponent<MeshRenderer>().enabled = false;
             b.EnemyPositions[i].GetComponent<BoxCollider>().enabled = false;
         }
-        StartCoroutine(useCard(selectedCard)); //Ativa a fun��o de usar a carta
-        cardHud.SetActive(false); //Desativa o hud da carta
-        actionHud.SetActive(true); //Ativa o hud de a��es
+        
+        image.GetComponent<Animator>().SetInteger("index",1);
+        //Debug.Log("O valor de index é" + image.GetComponent<Animator>().GetParameter());
+        StartCoroutine(deleteHud());
+
+        
+        
         
     }
 
@@ -457,6 +461,14 @@ public class Deck : MonoBehaviour
             b.EnemyPositions[i].GetComponent<MeshRenderer>().enabled = false;
             b.EnemyPositions[i].GetComponent<BoxCollider>().enabled = false;
         }
+    }
+
+    public IEnumerator deleteHud(){
+        yield return new WaitForSeconds(1.0f);
+        cardHud.SetActive(false); //Desativa o hud da carta
+        actionHud.SetActive(true); //Ativa o hud de a��es
+        StartCoroutine(useCard(selectedCard)); //Ativa a fun��o de usar a carta
+        
     }
 
 }
