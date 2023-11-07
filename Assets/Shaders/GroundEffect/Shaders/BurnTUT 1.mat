@@ -45,12 +45,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Contrast: 1
-    - _Lvl: 1
+    - _Contrast: 0
+    - _Lvl: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _MossOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _MossOffset: {r: 0, g: 0, b: 1.35, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1731756067797451947
 MonoBehaviour:

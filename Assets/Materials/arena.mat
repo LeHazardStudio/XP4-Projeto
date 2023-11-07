@@ -42,8 +42,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Contrast: 0
-    - _Lvl: 0
+    - _Contrast: 0.8
+    - _Lvl: 0.5
     m_Colors:
-    - _MossOffset: {r: 0, g: 0, b: 0.27, a: 0}
+    - _MossOffset: {r: 0, g: 0, b: 1.35, a: 0}
   m_BuildTextureStacks: []

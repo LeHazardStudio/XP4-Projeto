@@ -8,8 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GlowTUT_Walls.v2
-  m_Shader: {fileID: -6465566751694194690, guid: 9b5f8a3f899d20a4cabb44221f89f732,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 9b5f8a3f899d20a4cabb44221f89f732, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -39,7 +38,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _FadePower: 2.8
-    - _GlowPower: 0.83
+    - _GlowPower: 1.08
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:

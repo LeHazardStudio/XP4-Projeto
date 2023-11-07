@@ -43,6 +43,10 @@ public class Deck : MonoBehaviour
     public Image image; //A imagem grande da carta
     public Board b; //O script do tabuleiro
     public Animator cardView;
+    public GameObject arenaEnem;
+    public Material arenaFire;
+    public Material arenaIce;
+    public Material arenaDark;
     
 
     void Start()
@@ -61,17 +65,20 @@ public class Deck : MonoBehaviour
 
         switch (ButtonManager.deckN)
         {
-            case 1:
+            case 1: //fogo
                 enm.ChooseDeck();
                 StartCoroutine(deckDefine(deckFire));
+                arenaEnem.GetComponent<MeshRenderer>().material=arenaFire;
                 break;
-            case 2:
+            case 2://Gelo
                 enm.ChooseDeck();
                 StartCoroutine(deckDefine(deckIce));
+                arenaEnem.GetComponent<MeshRenderer>().material=arenaIce;
                 break;
-            case 3:
+            case 3://Dark
                 enm.ChooseDeck();
                 StartCoroutine(deckDefine(deckDark));
+                arenaEnem.GetComponent<MeshRenderer>().material=arenaDark;
                 break;
         }
 

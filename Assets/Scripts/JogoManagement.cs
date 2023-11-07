@@ -62,11 +62,18 @@ public class JogoManagement : MonoBehaviour
     public GameObject shieldEffect;
 
     public List<GameObject> effects;
+    public GameObject arenaPlay;
+    public GameObject arenaEnem;
+    public GameObject playerCrack;
+    public GameObject enemCrack;
+
     void Start()
     {
         dc = FindObjectOfType<Deck>();
         enm = FindObjectOfType<Enemy>();
         b = FindObjectOfType<Board>();
+        enemCrack.SetActive(false);
+        playerCrack.SetActive(false);
     }
 
     
@@ -77,6 +84,19 @@ public class JogoManagement : MonoBehaviour
         P2HPtext.text = P2_HP + "/100";
         P2MPtext.text = P2_MANA + "/100";
         P1Bufftext.text = "Attack: " + p1attackBuff + " / " + "Defense: " + p1defenseBuff;
+
+        if (P1_HP <= 30)
+        {
+            arenaDmg(arenaPlay);
+            return;
+        }
+
+        if (P2_HP <=30)
+        {
+            arenaDmg(arenaEnem);
+            return;
+        }
+
         if (TurnStart)
         {
             dc.cardView.GetComponent<Animator>().SetInteger("AnimInd", 0);
@@ -196,6 +216,7 @@ public class JogoManagement : MonoBehaviour
                             enm.selectedCard.GetComponent<Cards>().particleY, effect2.transform.position.z);
                         effect2.transform.Rotate(- enm.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
                         effects.Add(effect2);
+                        enemCrack.SetActive(true);
 
 
                     }
@@ -257,6 +278,7 @@ public class JogoManagement : MonoBehaviour
                                 dc.selectedCard.GetComponent<Cards>().particleY, effect.transform.position.z);
                             effect.transform.Rotate(dc.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
                             effects.Add(effect);
+                            playerCrack.SetActive(true);
                             
 
                         }
@@ -382,6 +404,12 @@ public class JogoManagement : MonoBehaviour
         effects.Clear();
         TurnStart = true;
 
+    }
+
+    public void arenaDmg(GameObject g)
+    {
+        g.GetComponent<MeshRenderer>().material.SetFloat("_Lvl",0.6f);
+        g.GetComponent<MeshRenderer>().material.SetFloat("_Contrast",0.6f);
     }
 
     

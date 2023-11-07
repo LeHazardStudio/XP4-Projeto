@@ -37,6 +37,10 @@ public class Enemy : MonoBehaviour
     public JogoManagement jm;
     public Sprite backCard;
     public Board b;
+    public GameObject arenaPlay;
+    public Material arenaFire;
+    public Material arenaIce;
+    public Material arenaDark;
    
    
 
@@ -320,14 +324,17 @@ public class Enemy : MonoBehaviour
         int r = UnityEngine.Random.Range(1,4);
         if(r == 1)
         {
+            arenaPlay.GetComponent<MeshRenderer>().material=arenaFire;
             fireDeck();
         }
         else if(r == 2)
         {
+            arenaPlay.GetComponent<MeshRenderer>().material=arenaIce;
             iceDeck();
         }
         else
         {
+            arenaPlay.GetComponent<MeshRenderer>().material=arenaDark;
             darkDeck();
         }
     }
