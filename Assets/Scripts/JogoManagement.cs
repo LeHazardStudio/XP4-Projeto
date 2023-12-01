@@ -216,10 +216,11 @@ public class JogoManagement : MonoBehaviour
                             enm.selectedCard.GetComponent<Cards>().particleY, effect2.transform.position.z);
                         effect2.transform.Rotate(- enm.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
                         effects.Add(effect2);
-                        enemCrack.SetActive(true);
+                        
 
 
                     }
+                    enemCrack.SetActive(true);
                 }
                 else
                 {
@@ -278,10 +279,11 @@ public class JogoManagement : MonoBehaviour
                                 dc.selectedCard.GetComponent<Cards>().particleY, effect.transform.position.z);
                             effect.transform.Rotate(dc.selectedCard.GetComponent<Cards>().rotation, 0.0f, 0.0f, Space.Self);
                             effects.Add(effect);
-                            playerCrack.SetActive(true);
+                            
                             
 
                         }
+                        playerCrack.SetActive(true);
                     }
                     else
                     {
